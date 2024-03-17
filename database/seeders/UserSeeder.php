@@ -5,22 +5,21 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use DB;
+use Hash;
 
-class RoleSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('roles')->upsert([
+        DB::table('users')->upsert([
             'id' => 1,
-            'name' => 'admin',
-        ],'id');
-
-         DB::table('roles')->upsert([
-            'id' => 2,
-            'name' => 'User',
+            'name' => 'Admin',
+            'email' => 'Admin@gmail.com',
+            'password' => Hash::make('password'),
+            'role_id' => 1,
         ],'id');
     }
 }
