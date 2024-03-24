@@ -33,3 +33,14 @@
     cursor: pointer;
     outline: none;
     }
+table{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+table tbody{
+    display: table;
+    width: 100%;
+}

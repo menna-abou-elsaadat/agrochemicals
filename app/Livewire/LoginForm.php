@@ -15,7 +15,8 @@ class LoginForm extends Component
 
     public function render()
     {
-        return view('livewire.login-form');
+        return view('livewire.login-form')
+            ->layout('components.layouts.login');
     }
 
     public function submit()
@@ -28,7 +29,7 @@ class LoginForm extends Component
         $user = User::where('email',$validatedData['email'])->first();
         if ($user && Hash::check($validatedData['password'], $user->password)) {
                 Auth::login($user);
-                return redirect()->to('/dashboard');
+                return redirect()->to('/user');
             
             }
 
