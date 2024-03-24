@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\LoginForm;
+use App\Livewire\User\UsersList;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +19,10 @@ use App\Livewire\LoginForm;
 Route::get('/dashboard', function () {
     return view('welcome');
 });
-Route::get('/', LoginForm::class);
+Route::get('/', LoginForm::class)->name('login');
+Route::get('/logout', [AuthController::class,'logout']);
+/////////////////////////////////user feature////////////////////////////////////////////
+Route::middleware('auth')->prefix('user')->group(function(){
+    Route::get('/',UsersList::class)->name('users_list');
+    
+});
