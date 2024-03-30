@@ -3,7 +3,7 @@
 <tr wire:key="{{ $item->id . $page }}">
     <td class="">{{ ++$key + $perPage * ($page - 1) }}.</td>
     @foreach ($columns as $column)
-    <td style="width: 159px;">
+    <td tabindex="0"rowspan="1" colspan="1">
       
         @if ($column['isData'])
         {!! $this->customFormat($column['column'], $column['hasRelation'] ? $item->{$column['column']}->{$column['columnRelation']} : $item->{$column['column']}) !!}

@@ -15,6 +15,7 @@ class View extends Component
     {
         $this->user = User::find($user_id);
         $this->render();
+        $this->dispatch('openViewUserModal');
     }
     public function render()
     {

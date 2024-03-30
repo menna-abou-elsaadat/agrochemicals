@@ -68,7 +68,7 @@ class UsersList extends Component
     public function view($user_id)
     {
         $this->dispatch('openViewModal', user_id: $user_id)->to('User.View');
-        $this->dispatch('openViewUserModal');
+        
     }
 
     public function doSort($column)

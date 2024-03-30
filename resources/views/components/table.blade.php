@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="table-responsive">
-        <table class="table align-middle mb-0 card-table nowrap dataTable no-footer dtr-inline" style="width: 1226px;">
+        <table class="table align-middle mb-0 card-table nowrap dataTable no-footer dtr-inline" style="width: 100%;">
             <x-table-head :columns="$columns" :sortColumn="$sortColumn" :sortDirection="$sortDirection" />
             <x-table-body :isModalEdit="$isModalEdit" :isModalView="$isModalView" :isModalDelete="$isModalDelete" :routeEdit="$routeEdit" :routeView="$routeView" :items="$items" :columns="$columns" :page="$page"
             :perPage="$perPage" />
