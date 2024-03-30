@@ -20,9 +20,11 @@ $(document).on('click','.delete_object',function(){
 	Swal.fire({
 	  title: message,
 	  showDenyButton: true,
-	  showCancelButton: true,
+	  showCancelButton: false,
 	  confirmButtonText: "الاستمرار",
-	  denyButtonText: `الغاء`
+	  denyButtonText: `الــغــاء`,
+	  denyButtonColor:'green',
+	  confirmButtonColor:'red',
 	}).then((result) => {
 	  if (result.isConfirmed) {
 	    Livewire.dispatch(function_name,[object_id]);
