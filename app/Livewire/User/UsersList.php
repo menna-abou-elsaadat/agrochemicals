@@ -21,6 +21,7 @@ class UsersList extends Component
     public $sortDirection = 'DESC';
     public $sortColumn = 'created_at';
     public $confirmDeleteId;
+    public $pageTitle = 'users';
 
     #[On('refreshComponent')] 
     public function refreshComponent()
@@ -45,6 +46,7 @@ class UsersList extends Component
         //     ->paginate($this->perPage, ['*'], 'page');
 
         // return view('livewire.customers.index', compact('customers', 'columns'));
+        $this->dispatch('passPageTitleToLayout', $this->pageTitle);
         $users = User::where('role_id',2)->orderBy($this->sortColumn, $this->sortDirection)
             ->paginate($this->perPage, ['*'], 'page');
         return view('livewire.user.index',compact('users','columns'));

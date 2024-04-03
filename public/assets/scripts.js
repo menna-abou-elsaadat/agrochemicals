@@ -4,11 +4,20 @@ document.addEventListener('livewire:init', () => {
           $(".modal").modal('hide');
         show_message(message);
     	});
+       /////////////////users/////////////////
        Livewire.on('openEditUserModal', (message) => {
           $('#edit_user').modal('show')
        });
        Livewire.on('openViewUserModal', (message) => {
           $('#view_user').modal('show')
+       });
+       //////////////////////categories///////////////////////
+       Livewire.on('openEditCategoryModal', (message) => {
+          $('#edit_category').modal('show')
+       });
+       ///////////////////
+       Livewire.on('passPageTitleToLayout', (pageTitle) => {
+          $('.'+pageTitle[0]).addClass('active');
        });
       });
 
@@ -33,11 +42,11 @@ $(document).on('click','.delete_object',function(){
 })
 $(document).ready(function() {
 
-    // $('.file_uploader').each(function(){
-    // 	model_name = $(this).attr('data-model-name');
-    // 	id = $(this).attr('data-id');
-    // 	model_column = $(this).attr('data-model-column');
-    // 	$(this).FancyFileUpload({
+   //  $('.file_uploader').each(function(){
+   //  	model_name = $(this).attr('data-model-name');
+   //  	id = $(this).attr('data-id');
+   //  	model_column = $(this).attr('data-model-column');
+   //  	$(this).FancyFileUpload({
 	// 	url: "/upload_file",
 	// 	params : {
 	// 		_token : $('#token').val(),
@@ -53,7 +62,7 @@ $(document).ready(function() {
 	// 	}
 
 	// });
-    // });
+   //  });
 	
 });
 

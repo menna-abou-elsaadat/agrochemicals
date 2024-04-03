@@ -37,6 +37,7 @@ class UserForm extends Component
     {
         $data = $this->validate();
         $user = UserService::store(2,$data['name'],$data['email'],$data['password'],$data['phone_number'],$data['address_1'],$data['address_2'],$data['region'],$data['points']);
+        $this->reset();
         $this->dispatch('refreshComponent')->to('User.UsersList');
         $this->dispatch('close_modal','تم انشاء العميل بنجاح');
     }

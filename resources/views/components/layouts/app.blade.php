@@ -40,15 +40,21 @@
                             </ul>
                         <div class="menu-link flex-fill ">
                             <!-- Start:: users link -->
-                            <div class="dropdown menu-apps active" >
-                                <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown">
+                            <div class="dropdown menu-apps users" >
+                                <a href="{{route('users_list')}}" class="btn btn-link">
                                     <span>العملاء</span>
                                 </a>
                             </div>
                     <!-- Start:: category link -->
+                            <div class="dropdown menu-apps categories">
+                                <a href="{{route('category_index')}}" class="btn btn-link">
+                                    <span>التصنيفات</span>
+                                </a>
+                            </div>
+                            <!-- Start:: products link -->
                             <div class="dropdown menu-apps">
                                 <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span>التصنيفات</span>
+                                    <span>الاصناف</span>
                                 </a>
                             </div>
                             <!-- Start:: orders link -->
@@ -72,7 +78,7 @@
                             <!-- Start:: company link -->
                             <div class="dropdown menu-apps">
                                 <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span>معلومات عن الشركة</span>
+                                    <span>عن الشركة</span>
                                 </a>
                             </div>
                             <!-- Start:: advertisment link -->
