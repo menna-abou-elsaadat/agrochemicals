@@ -59,13 +59,13 @@
                             </div>
                             <!-- Start:: orders link -->
                             <div class="dropdown menu-apps">
-                                <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a href="#" class="btn btn-link">
                                     <span>طلبات الشراء</span>
                                 </a>
                             </div>
                             <!-- Start:: payment methods link -->
-                            <div class="dropdown menu-apps">
-                                <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="dropdown menu-apps payment_methods">
+                                <a href="{{route('payment_method_index')}}" class="btn btn-link">
                                     <span>طرق الدفع</span>
                                 </a>
                             </div>

@@ -5,6 +5,7 @@ use App\Livewire\LoginForm;
 use App\Livewire\User\UsersList;
 use App\Livewire\Category\Index as category_index;
 use App\Livewire\Product\Index as product_index;
+use App\Livewire\PaymentMethod\Index as payment_method_index;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -37,5 +38,11 @@ Route::middleware('auth')->prefix('category')->group(function(){
 /////////////////////////product feature/////////////////////////////////////
 Route::middleware('auth')->prefix('product')->group(function(){
     Route::get('/',product_index::class)->name('product_index');
+    
+});
+
+/////////////////////////payment methods feature/////////////////////////////////////
+Route::middleware('auth')->prefix('payment_methods')->group(function(){
+    Route::get('/',payment_method_index::class)->name('payment_method_index');
     
 });
