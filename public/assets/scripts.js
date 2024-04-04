@@ -15,7 +15,14 @@ document.addEventListener('livewire:init', () => {
        Livewire.on('openEditCategoryModal', (message) => {
           $('#edit_category').modal('show')
        });
-       ///////////////////
+       ///////////////////products//////////////////
+       Livewire.on('openEditProductModal', (message) => {
+          $('#edit_product').modal('show')
+       });
+       Livewire.on('openViewProductModal', (message) => {
+          $('#view_product').modal('show')
+       });
+ 
        Livewire.on('passPageTitleToLayout', (pageTitle) => {
           $('.'+pageTitle[0]).addClass('active');
        });

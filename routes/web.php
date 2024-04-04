@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\LoginForm;
 use App\Livewire\User\UsersList;
 use App\Livewire\Category\Index as category_index;
+use App\Livewire\Product\Index as product_index;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -30,5 +31,11 @@ Route::middleware('auth')->prefix('user')->group(function(){
 /////////////////////////category feature/////////////////////////////////////
 Route::middleware('auth')->prefix('category')->group(function(){
     Route::get('/',category_index::class)->name('category_index');
+    
+});
+
+/////////////////////////product feature/////////////////////////////////////
+Route::middleware('auth')->prefix('product')->group(function(){
+    Route::get('/',product_index::class)->name('product_index');
     
 });

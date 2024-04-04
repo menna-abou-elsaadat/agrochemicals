@@ -52,8 +52,8 @@
                                 </a>
                             </div>
                             <!-- Start:: products link -->
-                            <div class="dropdown menu-apps">
-                                <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="dropdown menu-apps products">
+                                <a href="{{route('product_index')}}" class="btn btn-link ">
                                     <span>الاصناف</span>
                                 </a>
                             </div>
