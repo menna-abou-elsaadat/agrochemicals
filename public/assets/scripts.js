@@ -22,6 +22,11 @@ document.addEventListener('livewire:init', () => {
        Livewire.on('openViewProductModal', (message) => {
           $('#view_product').modal('show')
        });
+
+        //////////////////////shipping fees///////////////////////
+       Livewire.on('openEditShippingFeesModal', (message) => {
+          $('#edit_shipping_fees').modal('show')
+       });
  
        Livewire.on('passPageTitleToLayout', (pageTitle) => {
           $('.'+pageTitle[0]).addClass('active');

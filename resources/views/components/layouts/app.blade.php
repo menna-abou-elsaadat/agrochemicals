@@ -70,8 +70,8 @@
                                 </a>
                             </div>
                             <!-- Start:: shipping link -->
-                            <div class="dropdown menu-apps">
-                                <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="dropdown menu-apps shipping_fees">
+                                <a href="{{route('shipping_fees_index')}}" class="btn btn-link">
                                     <span>الشحن</span>
                                 </a>
                             </div>
