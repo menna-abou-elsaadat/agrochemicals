@@ -32,8 +32,12 @@ document.addEventListener('livewire:init', () => {
        Livewire.on('openEditCompanyDataModal', (message) => {
           $('#edit_company_data').modal('show')
        });
+
+       //////////////////////advs data///////////////////////
+       Livewire.on('openEditAdvModal', (message) => {
+          $('#edit_adv').modal('show')
+       });
        
- 
        Livewire.on('passPageTitleToLayout', (pageTitle) => {
           $('.'+pageTitle[0]).addClass('active');
        });

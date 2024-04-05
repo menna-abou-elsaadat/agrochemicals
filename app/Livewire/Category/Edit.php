@@ -19,6 +19,11 @@ class Edit extends Component
     public $uploaded_file;
     #[Validate('')]
     public $category_file;
+    protected $messages = [
+        'name.required' => 'يرجى ادخال الاسم',
+        'uploaded_file' => 'يجب ان يكون الملف المرفوع من نوع (png,jpeg,jpg,gif) ',
+        'category_file.required' => 'يرجى ادخال صورة'
+    ];
     public function render()
     {
         return view('livewire.category.edit');
