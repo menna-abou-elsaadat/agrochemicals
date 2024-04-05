@@ -7,6 +7,7 @@ use App\Livewire\Category\Index as category_index;
 use App\Livewire\Product\Index as product_index;
 use App\Livewire\PaymentMethod\Index as payment_method_index;
 use App\Livewire\ShippingFees\Index as shipping_fees_index;
+use App\Livewire\Company\Index as company_index;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -51,5 +52,10 @@ Route::middleware('auth')->prefix('payment_methods')->group(function(){
 /////////////////////////shipping fees feature/////////////////////////////////////
 Route::middleware('auth')->prefix('shipping_fees')->group(function(){
     Route::get('/',shipping_fees_index::class)->name('shipping_fees_index');
+    
+});
+/////////////////////////company data feature/////////////////////////////////////
+Route::middleware('auth')->prefix('company')->group(function(){
+    Route::get('/',company_index::class)->name('company_index');
     
 });

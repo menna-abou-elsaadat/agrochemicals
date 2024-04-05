@@ -76,8 +76,8 @@
                                 </a>
                             </div>
                             <!-- Start:: company link -->
-                            <div class="dropdown menu-apps">
-                                <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="dropdown menu-apps company">
+                                <a href="{{route('company_index')}}" class="btn btn-link" >
                                     <span>عن الشركة</span>
                                 </a>
                             </div>
