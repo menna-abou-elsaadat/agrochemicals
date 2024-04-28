@@ -24,7 +24,7 @@
                                 <li>
                                     <div class="dropdown morphing scale-left user-profile mx-lg-3 mx-2">
                                         <a class="nav-link dropdown-toggle rounded-circle after-none p-0" href="#" role="button" data-bs-toggle="dropdown">
-                                            <img class="avatar lg img-thumbnail rounded-circle shadow" src="./assets/img/profile_av.png" alt="">
+                                            <img class="avatar lg img-thumbnail rounded-circle shadow" src="/./assets/img/profile_av.png" alt="">
                                         </a>
                                         <div class="dropdown-menu border-0 rounded-4 shadow p-0 ">
                                             <div class="card w240 overflow-hidden">

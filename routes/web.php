@@ -41,7 +41,7 @@ Route::middleware('auth')->prefix('category')->group(function(){
 
 /////////////////////////product feature/////////////////////////////////////
 Route::middleware('auth')->prefix('product')->group(function(){
-    Route::get('/{category_id?}',product_index::class)->name('product_index');
+    Route::get('/{category_id?}/',product_index::class)->name('product_index');
     
 });
 
