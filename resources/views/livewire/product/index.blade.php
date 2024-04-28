@@ -5,6 +5,15 @@
                 <div class="col-12 mb-2">
                     <div class="d-flex justify-content-between align-items-center">
                         <h1 class="h2 mb-md-0 text-white fw-light">الاصناف</h1>
+                        <div class="mb-md-0 text-white fw-light">
+                            <label>الصنف</label>
+                            <select wire:model.live="search">
+                                    <option value="">اختر تصنيف</option>
+                                    @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                        </div>
                         <div class="page-action">
                             <!-- btn:: create new product -->
                             <button class="btn d-none d-sm-inline-flex rounded-pill" data-bs-toggle="modal" data-bs-target="#create_product" type="button">

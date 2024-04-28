@@ -41,8 +41,9 @@ class Index extends Component
             ['label' => '', 'column' => 'action', 'isData' => false,'hasRelation'=> false],
         ];
 
-        $products = CategoryProduct::orderby($this->sortColumn, $this->sortDirection)->paginate($this->perPage, ['*'], 'page');
-        return view('livewire.product.index',compact('products','columns'));
+        $products = CategoryProduct::search($this->search)->orderby($this->sortColumn, $this->sortDirection)->paginate($this->perPage, ['*'], 'page');
+        $categories = Category::get();
+        return view('livewire.product.index',compact('products','columns','categories'));
     }
 
     #[On('refreshComponent')] 
@@ -81,11 +82,15 @@ class Index extends Component
      * @return void
      */
    
-    public function mount()
+    public function mount($category_id=null)
     {
         if (session()->has('page')) {
             $this->page = session('page');
         }
+        if ($category_id) {
+            $this->search = $category_id;
+        }
+
     }
     public function customFormat($column, $data)
     {

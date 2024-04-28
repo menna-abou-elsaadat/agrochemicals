@@ -33,7 +33,7 @@
                                     <div class="col-sm-12">
                                         <div class="row row-cards">
                                             <div class="col-12">
-                                               <x-table :columns="$columns" :page="$page" :perPage="$perPage" :items="$payment_methods" :sortColumn="$sortColumn" :sortDirection="$sortDirection">
+                                               <x-table :columns="$columns" :page="$page" :perPage="$perPage" :items="$payment_methods" :sortColumn="$sortColumn" :sortDirection="$sortDirection" isModalDelete="true" isModalEdit="true">
                                                </x-table> 
                                             </div>
                                         </div>
@@ -48,4 +48,5 @@
     </div>
 </div>
 @livewire('PaymentMethod.Create')
+@livewire('PaymentMethod.Edit')
 </div>

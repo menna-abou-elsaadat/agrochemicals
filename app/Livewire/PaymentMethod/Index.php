@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On; 
 use App\Models\PaymentMethod;
+use App\Services\PaymentMethodService;
 
 class Index extends Component
 {
@@ -30,6 +31,7 @@ class Index extends Component
         $columns = [
             ['label' => 'الاسم', 'column' => 'name', 'isData' => true,'hasRelation'=> false],
             ['label' => 'الرقم', 'column' => 'number', 'isData' => true,'hasRelation'=> false],
+            ['label' => '', 'column' => 'action', 'isData' => false,'hasRelation'=> false],
         ];
 
         $payment_methods = PaymentMethod::orderby($this->sortColumn, $this->sortDirection)->paginate($this->perPage, ['*'], 'page');
@@ -39,6 +41,13 @@ class Index extends Component
     public function refreshComponent()
     {
         $this->render();
+    }
+
+    #[On('edit')]
+    public function edit($id)
+    {
+        $this->dispatch('openEditModal', id: $id)->to('PaymentMethod.Edit');
+        $this->dispatch('openEditPaymentMethodModal');
     }
 
     public function doSort($column)
@@ -85,6 +94,14 @@ class Index extends Component
             default:
                 return $data;
         }
+    }
+
+    #[On('remove')]
+    public function remove($id)
+    {
+        PaymentMethodService::delete($id);
+        $this->refreshComponent();
+
     }
 
 }

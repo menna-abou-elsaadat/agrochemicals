@@ -37,6 +37,12 @@ document.addEventListener('livewire:init', () => {
        Livewire.on('openEditAdvModal', (message) => {
           $('#edit_adv').modal('show')
        });
+
+       //////////////////////payment method data///////////////////////
+       Livewire.on('openEditPaymentMethodModal', (message) => {
+          $('#edit_payment_method').modal('show')
+       });
+
        
        Livewire.on('passPageTitleToLayout', (pageTitle) => {
           $('.'+pageTitle[0]).addClass('active');

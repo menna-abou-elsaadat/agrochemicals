@@ -30,7 +30,7 @@ class Index extends Component
         $this->dispatch('passPageTitleToLayout', $this->pageTitle);
 
         $columns = [
-            ['label' => 'الاسم', 'column' => 'name', 'isData' => true,'hasRelation'=> false],
+            ['label' => 'الاسم', 'column' => 'id', 'isData' => true,'hasRelation'=> false],
             ['label' => 'الصورة', 'column' => 'file_id', 'isData' => true,'hasRelation'=> false],
             ['label' => '', 'column' => 'action', 'isData' => false,'hasRelation'=> false],
         ];
@@ -87,8 +87,14 @@ class Index extends Component
         switch ($column) {
             case 'file_id':
                 $file = File::find($data);
-                $path = url('uploads'.DIRECTORY_SEPARATOR.$file->uuid.DIRECTORY_SEPARATOR.$file->name);
+                if ($file) {
+                    $path = url('uploads'.DIRECTORY_SEPARATOR.$file->uuid.DIRECTORY_SEPARATOR.$file->name);
                 return '<img src="'.$path.'" width="230" alt="image" />';
+                }
+                return '';
+            case 'id':
+                $category = Category::find($data);
+                return '<a href="'.route('product_index',['category_id'=>$category->id]).'">'.$category->name.'</a>' ; 
             default:
                 return $data;
         }

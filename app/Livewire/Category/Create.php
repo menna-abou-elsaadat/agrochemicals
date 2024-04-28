@@ -14,7 +14,7 @@ class Create extends Component
 
     #[Validate('required')]
     public $name;
-    #[Validate('required')]
+    #[Validate('')]
     public $category_file;
     public $uploaded_file;
 

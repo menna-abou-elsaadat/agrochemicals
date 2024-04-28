@@ -18,4 +18,10 @@ class CategoryProduct extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+      public function scopeSearch($query, $value){
+        if ($value) {
+            $query->where("category_id", $value);
+        }
+    }
 }

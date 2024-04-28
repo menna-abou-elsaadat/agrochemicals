@@ -38,7 +38,9 @@ class CategoryService
 	public static function delete($category_id)
 	{
 		$category = Category::find($category_id);
-		FileService::delete($category->file_id);
+		if ($category->file) {
+			FileService::delete($category->file_id);
+		}
 		$category->delete();
 	}
 }
