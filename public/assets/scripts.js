@@ -43,6 +43,11 @@ document.addEventListener('livewire:init', () => {
           $('#edit_payment_method').modal('show')
        });
 
+       //////////////////////discount codes data///////////////////////
+       Livewire.on('openEditDiscountCodesModal', (message) => {
+          $('#edit_discount_code').modal('show')
+       });
+
        
        Livewire.on('passPageTitleToLayout', (pageTitle) => {
           $('.'+pageTitle[0]).addClass('active');

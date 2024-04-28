@@ -9,6 +9,7 @@ use App\Livewire\PaymentMethod\Index as payment_method_index;
 use App\Livewire\ShippingFees\Index as shipping_fees_index;
 use App\Livewire\Company\Index as company_index;
 use App\Livewire\Adv\Index as adv_index;
+use App\Livewire\DiscountCodes\Index as discount_codes_index;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -66,3 +67,9 @@ Route::middleware('auth')->prefix('Adv')->group(function(){
     Route::get('/',adv_index::class)->name('adv_index');
     
 });
+/////////////////////////Adv feature/////////////////////////////////////
+Route::middleware('auth')->prefix('codes')->group(function(){
+    Route::get('/',discount_codes_index::class)->name('discount_codes_index');
+    
+});
+

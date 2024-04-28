@@ -87,6 +87,12 @@
                                     <span>اعلانات</span>
                                 </a>
                             </div>
+                            <!-- Start:: discount codes link -->
+                            <div class="dropdown menu-apps discount_codes">
+                                <a href="{{route('discount_codes_index')}}" class="btn btn-link">
+                                    <span>اكواد الخصم</span>
+                                </a>
+                            </div>
 
                         </div>
                     </div>
