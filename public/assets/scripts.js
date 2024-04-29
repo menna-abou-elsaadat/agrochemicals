@@ -48,6 +48,11 @@ document.addEventListener('livewire:init', () => {
           $('#edit_discount_code').modal('show')
        });
 
+       //////////////////////contact data///////////////////////
+       Livewire.on('openEditContactModal', (message) => {
+          $('#edit_contact').modal('show')
+       });
+
        
        Livewire.on('passPageTitleToLayout', (pageTitle) => {
           $('.'+pageTitle[0]).addClass('active');

@@ -19,25 +19,25 @@
                 <div class="container-fluid">
                     <div class="d-flex justify-content-between">
                         <!-- Header:: icon and user profile -->
-                            <ul class="nav d-flex align-items-center mb-0 list-unstyled">
+                        <ul class="nav d-flex align-items-center mb-0 list-unstyled">
                             <!-- start: User dropdown-menu -->
-                                <li>
-                                    <div class="dropdown morphing scale-left user-profile mx-lg-3 mx-2">
-                                        <a class="nav-link dropdown-toggle rounded-circle after-none p-0" href="#" role="button" data-bs-toggle="dropdown">
-                                            <img class="avatar lg img-thumbnail rounded-circle shadow" src="/./assets/img/profile_av.png" alt="">
-                                        </a>
-                                        <div class="dropdown-menu border-0 rounded-4 shadow p-0 ">
-                                            <div class="card w240 overflow-hidden">
-                                                <div class="card-body">
-                                                    <h6 class="card-title mb-0">{{Auth::user()->name}}</h6>
-                                                    <p class="text-muted">{{Auth::user()->email}}</p>
-                                                    <a href="/logout" class="btn bg-secondary text-light text-uppercase w-100">خروج</a>
-                                                </div>
+                            <li>
+                                <div class="dropdown morphing scale-left user-profile mx-lg-3 mx-2">
+                                    <a class="nav-link dropdown-toggle rounded-circle after-none p-0" href="#" role="button" data-bs-toggle="dropdown">
+                                        <img class="avatar lg img-thumbnail rounded-circle shadow" src="/./assets/img/profile_av.png" alt="">
+                                    </a>
+                                    <div class="dropdown-menu border-0 rounded-4 shadow p-0 ">
+                                        <div class="card w240 overflow-hidden">
+                                            <div class="card-body">
+                                                <h6 class="card-title mb-0">{{Auth::user()->name}}</h6>
+                                                <p class="text-muted">{{Auth::user()->email}}</p>
+                                                <a href="/logout" class="btn bg-secondary text-light text-uppercase w-100">خروج</a>
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </li>
+                        </ul>
                         <div class="menu-link flex-fill ">
                             <!-- Start:: users link -->
                             <div class="dropdown menu-apps users" >
@@ -45,7 +45,7 @@
                                     <span>العملاء</span>
                                 </a>
                             </div>
-                    <!-- Start:: category link -->
+                            <!-- Start:: category link -->
                             <div class="dropdown menu-apps categories">
                                 <a href="{{route('category_index')}}" class="btn btn-link">
                                     <span>التصنيفات</span>
@@ -75,12 +75,6 @@
                                     <span>الشحن</span>
                                 </a>
                             </div>
-                            <!-- Start:: company link -->
-                            <div class="dropdown menu-apps company">
-                                <a href="{{route('company_index')}}" class="btn btn-link" >
-                                    <span>عن الشركة</span>
-                                </a>
-                            </div>
                             <!-- Start:: advertisment link -->
                             <div class="dropdown menu-apps advs">
                                 <a href="{{route('adv_index')}}" class="btn btn-link">
@@ -93,7 +87,15 @@
                                     <span>اكواد الخصم</span>
                                 </a>
                             </div>
-
+                            <div class="dropdown menu-pages company">
+                                <a href="#" class="btn btn-link dropdown-toggle after-none" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span>الشركة</span>
+                                </a>
+                                <ul class="dropdown-menu p-2 shadow animation_delay " data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 34px);">
+                                    <li><a href="{{route('company_index')}}" class="btn btn-link" ><span>عن الشركة</span></a></li>
+                                    <li><a href="{{route('contacts_index')}}" class="btn btn-link" ><span>تواصل</span></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

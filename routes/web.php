@@ -10,6 +10,7 @@ use App\Livewire\ShippingFees\Index as shipping_fees_index;
 use App\Livewire\Company\Index as company_index;
 use App\Livewire\Adv\Index as adv_index;
 use App\Livewire\DiscountCodes\Index as discount_codes_index;
+use App\Livewire\Contact\Index as contacts_index;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -70,6 +71,11 @@ Route::middleware('auth')->prefix('Adv')->group(function(){
 /////////////////////////Adv feature/////////////////////////////////////
 Route::middleware('auth')->prefix('codes')->group(function(){
     Route::get('/',discount_codes_index::class)->name('discount_codes_index');
+    
+});
+/////////////////////////contacts feature/////////////////////////////////////
+Route::middleware('auth')->prefix('contact')->group(function(){
+    Route::get('/',contacts_index::class)->name('contacts_index');
     
 });
 
