@@ -40,6 +40,7 @@ Route::controller(CategoryController::class)->middleware('auth:sanctum')->prefix
 Route::controller(CategoryProductController::class)->middleware('auth:sanctum')->prefix('category-product')->group(function(){
     Route::get('/','index')->name('index');
     Route::get('/special','special')->name('special');
+    Route::post('/search','search')->name('search');
 });
 
 //--------------------------------User Favourites Module------------------------------

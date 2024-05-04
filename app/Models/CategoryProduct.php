@@ -19,9 +19,20 @@ class CategoryProduct extends Model
         return $this->belongsTo(Category::class);
     }
 
-      public function scopeSearch($query, $value){
-        if ($value) {
-            $query->where("category_id", $value);
+    public function scopeSearch($query, $column ,$value){
+        if ($value && $column) {
+            if ($column == 'category_id') {
+
+                $query->where("category_id", $value);
+            }
+
+            if ($column == 'product_name') {
+                $query->where('name','like','%'.$value.'%');
+            }
+
+            if ($column == 'active_ingredient') {
+                $query->where('active_material','like','%'.$value.'%');
+            }
         }
     }
 }

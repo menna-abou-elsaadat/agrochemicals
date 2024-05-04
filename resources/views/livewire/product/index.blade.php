@@ -7,12 +7,12 @@
                         <h1 class="h2 mb-md-0 text-white fw-light">الاصناف</h1>
                         <div class="mb-md-0 text-white fw-light">
                             <label>الصنف</label>
-                            <select wire:model.live="search">
-                                    <option value="">اختر تصنيف</option>
-                                    @foreach($categories as $category)
+                            <select wire:model.live="search" wire:change="changeSearchData('category_id')">
+                                <option value="">اختر تصنيف</option>
+                                @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @endforeach
-                                </select>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="page-action">
                             <!-- btn:: create new product -->

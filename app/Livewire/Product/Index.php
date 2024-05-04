@@ -22,6 +22,7 @@ class Index extends Component
     public $page = 1;
     public $perPage = 10;
     public $search = '';
+    public $search_column = '';
     public $confirmDeleteId;
     public $sortDirection = 'DESC';
     public $sortColumn = 'created_at';
@@ -41,9 +42,14 @@ class Index extends Component
             ['label' => '', 'column' => 'action', 'isData' => false,'hasRelation'=> false],
         ];
 
-        $products = CategoryProduct::search($this->search)->orderby($this->sortColumn, $this->sortDirection)->paginate($this->perPage, ['*'], 'page');
+        $products = CategoryProduct::search($this->search_column,$this->search)->orderby($this->sortColumn, $this->sortDirection)->paginate($this->perPage, ['*'], 'page');
         $categories = Category::get();
         return view('livewire.product.index',compact('products','columns','categories'));
+    }
+
+    public function changeSearchData($search_column)
+    {
+        $this->search_column = $search_column;
     }
 
     #[On('refreshComponent')] 
@@ -89,6 +95,7 @@ class Index extends Component
         }
         if ($category_id) {
             $this->search = $category_id;
+            $this->search_column = 'category_id';
         }
 
     }
