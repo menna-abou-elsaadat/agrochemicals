@@ -33,6 +33,16 @@ class CategoryProduct extends Model
             if ($column == 'active_ingredient') {
                 $query->where('active_material','like','%'.$value.'%');
             }
+
+            if ($column == 'disease') {
+                $query->where(function($q) use ($value){
+                    $q->where('properties','like','%'.$value.'%')
+                    ->orWhere('other_data','like','%'.$value.'%');
+                })
+                
+                ;
+            }
+
         }
     }
 }
