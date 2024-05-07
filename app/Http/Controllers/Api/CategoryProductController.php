@@ -10,9 +10,13 @@ use App\Models\CategoryProduct;
 
 class CategoryProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = CategoryProduct::get();
+        $input = $request->input();
+        if (!isset($input['category_id'])) {
+            return ApiResponse::sendResponse(401,'category id is required',Null);
+        }
+        $products = CategoryProduct::where('category_id',$input['category_id'])->get();
         $data = CategoryProductResource::collection($products);
         return ApiResponse::sendResponse(200,'products data',$data);
     }

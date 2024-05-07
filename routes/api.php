@@ -38,7 +38,7 @@ Route::controller(CategoryController::class)->prefix('category')->group(function
 
 //--------------------------------Category Product Module------------------------------
 Route::controller(CategoryProductController::class)->prefix('category-product')->group(function(){
-    Route::get('/','index')->name('index');
+    Route::post('/','index')->name('index');
     Route::get('/special','special')->name('special');
     Route::post('/search','search')->name('search');
 });
