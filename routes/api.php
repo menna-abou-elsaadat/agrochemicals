@@ -32,19 +32,19 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('edit_user_data','edit_user_data')->middleware('auth:sanctum')->name('edit_user_data');
 });
 //--------------------------------Category Module------------------------------
-Route::controller(CategoryController::class)->middleware('auth:sanctum')->prefix('category')->group(function(){
+Route::controller(CategoryController::class)->prefix('category')->group(function(){
     Route::get('/','index')->name('index');
 });
 
 //--------------------------------Category Product Module------------------------------
-Route::controller(CategoryProductController::class)->middleware('auth:sanctum')->prefix('category-product')->group(function(){
+Route::controller(CategoryProductController::class)->prefix('category-product')->group(function(){
     Route::get('/','index')->name('index');
     Route::get('/special','special')->name('special');
     Route::post('/search','search')->name('search');
 });
 
 //--------------------------------User Favourites Module------------------------------
-Route::controller(UserFavouriteController::class)->middleware('auth:sanctum')->prefix('user_favourite')->group(function(){
+Route::controller(UserFavouriteController::class)->prefix('user_favourite')->group(function(){
     Route::get('/','index')->name('index');
     Route::post('set_fav','set_fav')->name('set_fav');
     Route::post('del_fav','del_fav')->name('del_fav');
@@ -52,17 +52,17 @@ Route::controller(UserFavouriteController::class)->middleware('auth:sanctum')->p
 });
 
 //--------------------------------shipping Module------------------------------
-Route::controller(ShippingController::class)->middleware('auth:sanctum')->prefix('shipping')->group(function(){
+Route::controller(ShippingController::class)->prefix('shipping')->group(function(){
     Route::get('/','index')->name('index');  
 });
 
 //--------------------------------payment Module------------------------------
-Route::controller(PaymentMethodController::class)->middleware('auth:sanctum')->prefix('payment')->group(function(){
+Route::controller(PaymentMethodController::class)->prefix('payment')->group(function(){
     Route::get('/','index')->name('index');  
 });
 
 //--------------------------------discount codes Module------------------------------
-Route::controller(DiscountCodesController::class)->middleware('auth:sanctum')->prefix('discount_code')->group(function(){
+Route::controller(DiscountCodesController::class)->prefix('discount_code')->group(function(){
     Route::get('/','index')->name('index');  
 });
 
