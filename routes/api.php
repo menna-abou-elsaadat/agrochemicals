@@ -63,6 +63,6 @@ Route::controller(PaymentMethodController::class)->prefix('payment')->group(func
 
 //--------------------------------discount codes Module------------------------------
 Route::controller(DiscountCodesController::class)->prefix('discount_code')->group(function(){
-    Route::get('/','index')->name('index');  
+    Route::post('/','index')->name('index');  
 });
 
