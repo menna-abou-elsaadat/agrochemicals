@@ -16,6 +16,7 @@ class CategoryResource extends JsonResource
     {
         return 
         [
+            'id' => $this->id,
             'name' => $this->name,
             'image' => $this->file?url('uploads'.DIRECTORY_SEPARATOR.$this->file->uuid.DIRECTORY_SEPARATOR.$this->file->name):null
         ];

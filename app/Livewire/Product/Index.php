@@ -24,7 +24,7 @@ class Index extends Component
     public $search = '';
     public $search_column = '';
     public $confirmDeleteId;
-    public $sortDirection = 'DESC';
+    public $sortDirection = 'ASC';
     public $sortColumn = 'created_at';
 
     public function render()
@@ -107,7 +107,7 @@ class Index extends Component
                 if($file)
                 {
                     $path = url('uploads'.DIRECTORY_SEPARATOR.$file->uuid.DIRECTORY_SEPARATOR.$file->name);
-                    return '<img src="'.$path.'" width="230" alt="image" />';
+                    return '<img src="'.$path.'" width="150" alt="image" />';
                 }
                 return '';
                 

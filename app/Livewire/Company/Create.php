@@ -16,7 +16,7 @@ class Create extends Component
 
     protected $messages = [
         'name.required' => 'يرجى ادخال المحافظة',
-        'value.required' => 'يرجى ادخال القيمة',
+        'value.required' => 'يرجى ادخال التفاصيل',
     ];
 
     public function render()

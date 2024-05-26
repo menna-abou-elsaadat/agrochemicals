@@ -45,7 +45,7 @@ Route::controller(CategoryProductController::class)->prefix('category-product')-
 
 //--------------------------------User Favourites Module------------------------------
 Route::controller(UserFavouriteController::class)->prefix('user_favourite')->group(function(){
-    Route::get('/','index')->name('index');
+    Route::post('/','index')->name('index');
     Route::post('set_fav','set_fav')->name('set_fav');
     Route::post('del_fav','del_fav')->name('del_fav');
     
@@ -53,7 +53,8 @@ Route::controller(UserFavouriteController::class)->prefix('user_favourite')->gro
 
 //--------------------------------shipping Module------------------------------
 Route::controller(ShippingController::class)->prefix('shipping')->group(function(){
-    Route::get('/','index')->name('index');  
+    Route::get('/','index')->name('index');
+    Route::post('/','get_governorate')->name('get_governorate');
 });
 
 //--------------------------------payment Module------------------------------

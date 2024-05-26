@@ -22,7 +22,7 @@ class Index extends Component
     public $perPage = 10;
     public $search = '';
     public $confirmDeleteId;
-    public $sortDirection = 'DESC';
+    public $sortDirection = 'ASC';
     public $sortColumn = 'created_at';
 
     public function render()
@@ -89,7 +89,7 @@ class Index extends Component
                 $file = File::find($data);
                 if ($file) {
                     $path = url('uploads'.DIRECTORY_SEPARATOR.$file->uuid.DIRECTORY_SEPARATOR.$file->name);
-                return '<img src="'.$path.'" width="230" alt="image" />';
+                return '<img src="'.$path.'" width="150" alt="image" />';
                 }
                 return '';
             case 'id':

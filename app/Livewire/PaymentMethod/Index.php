@@ -21,7 +21,7 @@ class Index extends Component
     public $perPage = 10;
     public $search = '';
     public $confirmDeleteId;
-    public $sortDirection = 'DESC';
+    public $sortDirection = 'ASC';
     public $sortColumn = 'created_at';
 
     public function render()

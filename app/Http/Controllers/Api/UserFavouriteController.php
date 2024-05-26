@@ -13,9 +13,13 @@ use App\Services\UserFavouriteService;
 
 class UserFavouriteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $favourites = UserFavourite::get();
+        $input = $request->input();
+        if (!isset($input['user_id'])) {
+            return ApiResponse::sendResponse(401,'user_id is required',Null);
+        }
+        $favourites = UserFavourite::where('user_id',$input['user_id'])->get();
         $data = UserFavouriteResource::collection($favourites);
         return ApiResponse::sendResponse(200,'user favourites data',$data);
     }
@@ -38,6 +42,6 @@ class UserFavouriteController extends Controller
         if ($favourite == 'error') {
             return ApiResponse::sendResponse(401,'user_id or product_id not found',null);
         }
-        return ApiResponse::sendResponse(404,'user favourite was deleted',null);
+        return ApiResponse::sendResponse(200,'user favourite was deleted',null);
     }
 }

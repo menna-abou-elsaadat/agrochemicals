@@ -18,7 +18,7 @@ class UsersList extends Component
     public $page = 1;
     public $perPage = 10;
     public $search = '';
-    public $sortDirection = 'DESC';
+    public $sortDirection = 'ASC';
     public $sortColumn = 'created_at';
     public $confirmDeleteId;
     public $pageTitle = 'users';

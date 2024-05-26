@@ -21,7 +21,7 @@ class Index extends Component
     public $perPage = 10;
     public $search = '';
     public $confirmDeleteId;
-    public $sortDirection = 'DESC';
+    public $sortDirection = 'ASC';
     public $sortColumn = 'created_at';
     public function render()
     {
@@ -29,7 +29,7 @@ class Index extends Component
 
         $columns = [
             ['label' => 'الاسم', 'column' => 'name', 'isData' => true,'hasRelation'=> false],
-            ['label' => 'القيمة', 'column' => 'value', 'isData' => true,'hasRelation'=> false],
+            ['label' => 'التفاصيل', 'column' => 'value', 'isData' => true,'hasRelation'=> false],
             ['label' => '', 'column' => 'action', 'isData' => false,'hasRelation'=> false],
         ];
 
