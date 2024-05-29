@@ -17,9 +17,10 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $inputs = $request->input();
-        $user = UserService::store($role_id = 2,$name = $inputs['name'],$email = $inputs['email'],$password = $inputs['password'],$phone_number = $inputs['phone'],$phone_number=null,$address_1=null,$region=$inputs['city']);
-        $data['name'] = $user->name;
-        $data['email'] = $user->email;
+        $user = UserService::store(2,$inputs['name'], $inputs['email'],$inputs['password'],$inputs['phone'],null,null,$inputs['city'],$inputs['device_token']);
+        $data['user_id'] = $user->id;
+        $user = Auth::user();
+        $data['token'] = $user->createToken($user->phone_number)->plainTextToken;
 
         return ApiResponse::sendResponse(201,'User Account Created Successfully',$data);
 
@@ -30,7 +31,8 @@ class AuthController extends Controller
         if (Auth::attempt(['phone_number'=>$inputs['phone'],'password'=>$inputs['password']])) {
             $user = Auth::user();
             $data['token'] = $user->createToken($user->phone_number)->plainTextToken;
-            $data['user'] = new UserResource($user);
+            // $data['user'] = new UserResource($user);
+            $data['user_id'] = $user->id;
 
             return ApiResponse::sendResponse(200,'User Account logged in Successfully',$data);
 
@@ -51,7 +53,7 @@ class AuthController extends Controller
     public function edit_user_data(EditRequest $request)
     {
         $inputs = $request->input();
-        $user = UserService::store($role_id = 2,$name = $inputs['name'],$email = $inputs['email'],$password = $inputs['password'],$phone_number = $inputs['phone'],$phone_number=null,$address_1=null,$region=$inputs['city'],$points=0,$id=$inputs['id']);
+        $user = UserService::store(2,$inputs['name'],$inputs['email'],$inputs['password'], $inputs['phone'],null,null,$inputs['city'],0,$inputs['device_token'],$id=$inputs['id']);
 
         $data['name'] = $user->name;
         $data['email'] = $user->email;

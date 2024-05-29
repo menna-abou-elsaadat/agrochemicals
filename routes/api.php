@@ -44,7 +44,7 @@ Route::controller(CategoryProductController::class)->prefix('category-product')-
 });
 
 //--------------------------------User Favourites Module------------------------------
-Route::controller(UserFavouriteController::class)->prefix('user_favourite')->group(function(){
+Route::controller(UserFavouriteController::class)->middleware('auth:sanctum')->prefix('user_favourite')->group(function(){
     Route::post('/','index')->name('index');
     Route::post('set_fav','set_fav')->name('set_fav');
     Route::post('del_fav','del_fav')->name('del_fav');

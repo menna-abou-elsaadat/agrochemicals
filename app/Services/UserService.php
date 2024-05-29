@@ -7,7 +7,7 @@ use Hash;
 
 class UserService
 {
-	public static function store($role_id,$name,$email,$password,$phone_number=null,$address_1=null,$address_2=null,$region=null,$points=0,$id=null)
+	public static function store($role_id,$name,$email,$password,$phone_number=null,$address_1=null,$address_2=null,$region=null,$points=0,$device_token-null,$id=null)
 	{
 		// update user 
 		if($id)
@@ -28,6 +28,7 @@ class UserService
 		$user->address_2 = $address_2;
 		$user->region = $region;
 		$user->points = $points;
+		$user->device_token = $device_token;
 		$user->save();
 
 		return $user;

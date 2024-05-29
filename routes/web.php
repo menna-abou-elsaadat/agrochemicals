@@ -11,6 +11,7 @@ use App\Livewire\Company\Index as company_index;
 use App\Livewire\Adv\Index as adv_index;
 use App\Livewire\DiscountCodes\Index as discount_codes_index;
 use App\Livewire\Contact\Index as contacts_index;
+use App\Livewire\Dieses\Index as dieses_index;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -79,3 +80,14 @@ Route::middleware('auth')->prefix('contact')->group(function(){
     
 });
 
+/////////////////////////contacts feature/////////////////////////////////////
+Route::middleware('auth')->prefix('dieses')->group(function(){
+    Route::get('/',contacts_index::class)->name('contacts_index');
+    
+});
+
+/////////////////////////dieses feature/////////////////////////////////////
+Route::middleware('auth')->prefix('dieses')->group(function(){
+    Route::get('/{id}',dieses_index::class)->name('dieses_index');
+    
+});

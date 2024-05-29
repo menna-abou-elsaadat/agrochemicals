@@ -10,6 +10,8 @@
 'isModalView' => false,
 'routeEdit' => null,
 'routeView' => null,
+'redirectToPage' => false,
+'redirectToPageRoute' => null,
 ])
 <div class="card">
     <div class="card-body border-bottom py-3">
@@ -33,8 +35,8 @@
     <div class="table-responsive">
         <table class="table align-middle mb-0 card-table nowrap dataTable no-footer dtr-inline" style="width: 100%;">
             <x-table-head :columns="$columns" :sortColumn="$sortColumn" :sortDirection="$sortDirection" />
-            <x-table-body :isModalEdit="$isModalEdit" :isModalView="$isModalView" :isModalDelete="$isModalDelete" :routeEdit="$routeEdit" :routeView="$routeView" :items="$items" :columns="$columns" :page="$page"
-            :perPage="$perPage" />
+            <x-table-body  :isModalEdit="$isModalEdit" :isModalView="$isModalView" :isModalDelete="$isModalDelete" :routeEdit="$routeEdit" :routeView="$routeView" :items="$items" :columns="$columns" :page="$page"
+            :perPage="$perPage" :redirectToPage="$redirectToPage" :redirectToPageRoute="$redirectToPageRoute" />
         </table>
     </div>
     <div class="card-footer d-flex align-items-center">

@@ -53,6 +53,11 @@ document.addEventListener('livewire:init', () => {
           $('#edit_contact').modal('show')
        });
 
+       //////////////////////contact data///////////////////////
+       Livewire.on('openEditDiesesModal', (message) => {
+          $('#edit_dieses').modal('show')
+       });
+
        
        Livewire.on('passPageTitleToLayout', (pageTitle) => {
           $('.'+pageTitle[0]).addClass('active');
