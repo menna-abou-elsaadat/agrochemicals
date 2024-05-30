@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('dieses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_product_id');
-            $table->string('crop');
-            $table->string('dieses');
+            $table->longText('crop');
+            $table->longText('dieses');
             $table->longText('hse_precuations')->nullable();
             $table->longText('phi')->nullable();
             $table->timestamps();

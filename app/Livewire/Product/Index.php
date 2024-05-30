@@ -33,9 +33,7 @@ class Index extends Component
         $columns = [
             ['label' => 'التصنيف', 'column' => 'category_id', 'isData' => true,'hasRelation'=> false],
             ['label' => 'الاسم', 'column' => 'name', 'isData' => true,'hasRelation'=> false],
-            ['label' => 'الاسم الفرعي', 'column' => 'secondary_name', 'isData' => true,'hasRelation'=> false],
             ['label' => 'سعر البيع', 'column' => 'price', 'isData' => true,'hasRelation'=> false],
-            ['label' => 'التكلفة', 'column' => 'cost', 'isData' => true,'hasRelation'=> false],
             ['label' => 'الخصم', 'column' => 'discount', 'isData' => true,'hasRelation'=> false],
             ['label' => 'منتج مخصوص', 'column' => 'special', 'isData' => true,'hasRelation'=> false],
             ['label' => 'صورة', 'column' => 'file_id', 'isData' => true,'hasRelation'=> false],

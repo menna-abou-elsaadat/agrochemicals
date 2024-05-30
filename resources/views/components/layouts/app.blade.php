@@ -9,6 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <link href="/assets/general_css.css" rel="stylesheet" />
         <link rel="stylesheet" href="/assets/plugins/fancy-file-uploader/fancy_fileupload.css" type="text/css" media="all" />
+        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
         @yield('style')
         @livewireStyles
     </head>
@@ -113,6 +114,7 @@
         <script type="text/javascript" src="/assets/plugins/fancy-file-uploader/jquery.fileupload.js"></script>
         <script type="text/javascript" src="/assets/plugins/fancy-file-uploader/jquery.iframe-transport.js"></script>
         <script type="text/javascript" src="/assets/plugins/fancy-file-uploader/jquery.fancy-fileupload.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
         @livewireScripts
     </body>
 </html>

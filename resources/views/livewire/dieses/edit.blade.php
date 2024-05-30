@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label">المرض</label>
-                                <input type="text" class="form-control" wire:model="dieses" placeholder="المرض">
+                                <textarea class="form-control" placeholder="المرض" style="height: 100px" wire:model="dieses"></textarea>
                                 @error('dieses') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                             <div class="col-12">

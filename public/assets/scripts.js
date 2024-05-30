@@ -86,6 +86,9 @@ $(document).on('click','.delete_object',function(){
 $(document).ready(function() {
 
    $('.modal').modal({backdrop: 'static', keyboard: false})
+   const quill = new Quill('.editor', {
+    theme: 'snow'
+  });
    //  $('.file_uploader').each(function(){
    //  	model_name = $(this).attr('data-model-name');
    //  	id = $(this).attr('data-id');
