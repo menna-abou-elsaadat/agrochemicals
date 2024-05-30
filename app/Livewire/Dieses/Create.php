@@ -36,7 +36,7 @@ class Create extends Component
     {
         $data = $this->validate();
         $category = DiesesService::store($this->product_id,$data['crop'],$data['dieses'],$data['hse_precuations'],$data['phi']);
-        $this->reset();
+        $this->resetExcept('product_id');
         $this->dispatch('refreshComponent')->to('Dieses.Index');
         $this->dispatch('close_modal','تم انشاء المرض بنجاح');
     }
