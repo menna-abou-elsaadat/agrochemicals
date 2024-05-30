@@ -6,7 +6,7 @@ use App\Models\Dieses as DiesesModel;
 
 class DiesesService
 {
-	public static function store($product_id,$dieses,$hse_precuations,$phi,$id=null)
+	public static function store($product_id,$crop,$dieses,$hse_precuations,$phi,$id=null)
 	{
 		if($id)
 		{
@@ -17,6 +17,7 @@ class DiesesService
 			$dieses_record = new DiesesModel();
 		}
 
+		$dieses_record->crop = $crop;
 		$dieses_record->category_product_id = $product_id;
 		$dieses_record->dieses = $dieses;
 		$dieses_record->hse_precuations = $hse_precuations;

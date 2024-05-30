@@ -9,6 +9,8 @@ use App\Services\DiesesService;
 class Create extends Component
 {
     #[Validate('required')]
+    public $crop;
+    #[Validate('required')]
     public $dieses;
     #[Validate('')]
     public $hse_precuations;
@@ -17,6 +19,7 @@ class Create extends Component
     public $product_id;
 
     protected $messages = [
+        'crop.required' => 'يرجى ادخال المحصول',
         'dieses.required' => 'يرجى ادخال المرض',
     ];
 
@@ -32,7 +35,7 @@ class Create extends Component
     public function save()
     {
         $data = $this->validate();
-        $category = DiesesService::store($this->product_id,$data['dieses'],$data['hse_precuations'],$data['phi']);
+        $category = DiesesService::store($this->product_id,$data['crop'],$data['dieses'],$data['hse_precuations'],$data['phi']);
         $this->reset();
         $this->dispatch('refreshComponent')->to('Dieses.Index');
         $this->dispatch('close_modal','تم انشاء المرض بنجاح');

@@ -10,6 +10,11 @@
                     <div class="modal-body">
                         <div class="row g-3">
                             <div class="col-12">
+                                <label class="form-label">المحصول</label>
+                                <input type="text" class="form-control" wire:model="crop" placeholder="المحصول">
+                                @error('crop') <span class="text-danger float_right">{{ $message }} </span> @enderror
+                            </div>
+                            <div class="col-12">
                                 <label class="form-label">المرض</label>
                                 <input type="text" class="form-control" wire:model="dieses" placeholder="المرض">
                                 @error('dieses') <span class="text-danger float_right">{{ $message }} </span> @enderror

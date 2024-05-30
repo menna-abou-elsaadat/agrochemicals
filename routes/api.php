@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\UserFavouriteController;
 use App\Http\Controllers\Api\ShippingController;
 use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\DiscountCodesController;
+use App\Http\Controllers\Api\UserAddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,8 +63,14 @@ Route::controller(PaymentMethodController::class)->prefix('payment')->group(func
     Route::get('/','index')->name('index');  
 });
 
-//--------------------------------discount codes Module------------------------------
+//--------------------------------discount codes Module-------------------------
 Route::controller(DiscountCodesController::class)->prefix('discount_code')->group(function(){
     Route::post('/','index')->name('index');  
+});
+
+//--------------------------------user address Module-------------------------
+Route::controller(UserAddressController::class)->middleware('auth:sanctum')->prefix('user_address')->group(function(){
+    Route::post('/create','create')->name('create'); 
+    Route::post('/','index')->name('index'); 
 });
 

@@ -19,6 +19,11 @@ class CategoryProduct extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function dieses()
+    {
+        return $this->hasMany(Dieses::class);
+    }
+
     public function scopeSearch($query, $column ,$value){
         if ($value && $column) {
             if ($column == 'category_id') {

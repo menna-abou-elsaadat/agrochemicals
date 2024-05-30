@@ -17,9 +17,9 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $inputs = $request->input();
-        $user = UserService::store(2,$inputs['name'], $inputs['email'],$inputs['password'],$inputs['phone'],null,null,$inputs['city'],$inputs['device_token']);
+        $user = UserService::store(2,$inputs['name'], $inputs['email'],$inputs['password'],$inputs['phone'],null,null,$inputs['city'],0,$inputs['device_token']);
         $data['user_id'] = $user->id;
-        $user = Auth::user();
+        Auth::login($user);
         $data['token'] = $user->createToken($user->phone_number)->plainTextToken;
 
         return ApiResponse::sendResponse(201,'User Account Created Successfully',$data);

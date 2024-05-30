@@ -30,6 +30,7 @@ class Index extends Component
     {
         $this->dispatch('passPageTitleToLayout', $this->pageTitle);
         $columns = [
+            ['label' => 'المحصول', 'column' => 'crop', 'isData' => true,'hasRelation'=> false],
             ['label' => 'المرض', 'column' => 'dieses', 'isData' => true,'hasRelation'=> false],
             ['label' => 'معدل الاستخدام', 'column' => 'hse_precuations', 'isData' => true,'hasRelation'=> false],
             ['label' => 'فترة ما قبل الحصاد', 'column' => 'phi', 'isData' => true,'hasRelation'=> false],
