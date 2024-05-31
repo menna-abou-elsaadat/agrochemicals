@@ -11,6 +11,9 @@ use App\Http\Requests\Api\User\LoginRequest;
 use App\Http\Requests\Api\User\EditRequest;
 use Auth;
 use App\Http\Resources\UserResource;
+use App\Http\Requests\Api\User\ChangePasswordRequest;
+use Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -59,5 +62,24 @@ class AuthController extends Controller
         $data['email'] = $user->email;
 
         return ApiResponse::sendResponse(200,'User Account updated Successfully',$data);
+    }
+
+    public function change_password(ChangePasswordRequest $request)
+    {
+        $inputs = $request->input();
+        $user = User::find($inputs['user_id']);
+        if(!$user)
+        {
+            return ApiResponse::sendResponse(401,'User id not found',null);
+        }
+
+        if (!Hash::check($inputs['old_password'], $user->password))
+        {
+             return ApiResponse::sendResponse(401,'old password doesnot match',null);
+        }
+
+        $user->password = Hash::make($inputs['new_password']);
+        $user->save();
+        return ApiResponse::sendResponse(200,'User password updated Successfully',null);
     }
 }

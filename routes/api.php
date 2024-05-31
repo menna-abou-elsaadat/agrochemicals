@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ShippingController;
 use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\DiscountCodesController;
 use App\Http\Controllers\Api\UserAddressController;
+use App\Http\Controllers\Api\GeneralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('login','login')->name('login');
     Route::post('logout','logout')->middleware('auth:sanctum')->name('logout');
     Route::post('edit_user_data','edit_user_data')->middleware('auth:sanctum')->name('edit_user_data');
+    Route::post('change_password','change_password')->middleware('auth:sanctum')->name('change_password');
 });
 //--------------------------------Category Module------------------------------
 Route::controller(CategoryController::class)->prefix('category')->group(function(){
@@ -74,3 +76,9 @@ Route::controller(UserAddressController::class)->middleware('auth:sanctum')->pre
     Route::post('/','index')->name('index'); 
 });
 
+//--------------------------------general Module-------------------------
+Route::controller(GeneralController::class)->group(function(){
+    Route::get('/adv','adv')->name('adv'); 
+    Route::get('/company_data','company_data')->name('company_data');
+    Route::get('/contact_us','contact_us')->name('contact_us');
+});
