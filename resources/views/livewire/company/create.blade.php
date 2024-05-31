@@ -17,20 +17,22 @@
                             <div class="col-12">
                                 <label class="form-label">التفاصيل</label>
                                 <div wire:init="initQuillEditor" wire:ignore>
-                                    <div class="editor" id="value" function-name = "updateValueContent"></div>
+                                    <div class="editor" id="value" function-name = "updateValueContent">
+                                        
+                                    </div>
                                 </div>
                             </div>
                             <input type="text" class="form-control hidden" wire:model="value">
                             @error('value') <span class="text-danger float_right">{{ $message }} </span> @enderror
                         </div>
                     </div>
-                <div class="modal-footer">
-                    <a  class="btn btn-primary add_editor_content_before_save">تسجيل معلومة عن الشركة</a>
-                    <button  type="submit" class="btn btn-primary hidden submit_button">تسجيل معلومة عن الشركة</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <a  class="btn btn-primary add_editor_content_before_save">تسجيل معلومة عن الشركة</a>
+                        <button  type="submit" class="btn btn-primary hidden submit_button">تسجيل معلومة عن الشركة</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </div>

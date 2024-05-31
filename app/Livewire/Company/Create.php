@@ -25,10 +25,9 @@ class Create extends Component
         $this->value = $content;
     }
     
-    #[On('initQuillEditor')]
     public function initQuillEditor()
     {
-        $this->dispatch('initQuillEditor');
+        $this->dispatch('initQuillEditor','value');
     }
     public function render()
     {

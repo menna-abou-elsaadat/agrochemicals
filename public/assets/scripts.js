@@ -67,11 +67,18 @@ document.addEventListener('livewire:init', () => {
                $(this).find('.ql-editor').empty();
          })
        });
+
+       Livewire.on('initQuillEditor', (id) => {
+         setTimeout( () =>
+         {
+          const quill = new Quill('#'+id[0], {
+            theme: 'snow'
+         });
+      
+         }, 100 ); 
+          });
+       
    });
-     
-document.addEventListener('livewire:init', () => {
-        setUpQuillEditor()
-        });
 
 $(document).on('click','.delete_object',function(){
 	message = $(this).attr('data-message');
@@ -92,7 +99,6 @@ $(document).on('click','.delete_object',function(){
 	});
 })
 $(document).ready(function() {
-
    $('.modal').modal({backdrop: 'static', keyboard: false})
    // setUpQuillEditor();
    
@@ -122,15 +128,16 @@ function show_message(message)
 		  timer: 3000,
 		});
 }
-// $(document).on('click','.containing_editors',function(){
-//    setUpQuillEditor()
-// })
-function setUpQuillEditor()
+
+function setUpQuillEditor(id)
 {
+   
    $('.editor').each(function(){
-      id  = $(this).attr('id');
-      const quill = new Quill('#'+id, {
+      id = $(this).attr('id');
+      console.log(id);
+      const quill = new Quill('#value', {
          theme: 'snow'
       });
    })
+      
 }

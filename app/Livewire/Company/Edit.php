@@ -31,20 +31,17 @@ class Edit extends Component
     public function openEditModal($id)
     {
         $this->company = CompanyData::find($id);
+        $this->id = $id;
         $this->name = $this->company->name;
         $this->value = $this->company->value;
+        $this->dispatch('initQuillEditor','value'.$this->id);
         $this->render();
         
     }
-    #[On('updateValueContent')]
-    public function updateValueContent($content)
+    #[On('updateEditValueContent')]
+    public function updateEditValueContent($value)
     {
-        $this->value = $content;
-    }
-    #[On('initQuillEditor')]
-    public function initQuillEditor()
-    {
-        $this->dispatch('initQuillEditor');
+        $this->value = $value;
     }
 
     public function save()
