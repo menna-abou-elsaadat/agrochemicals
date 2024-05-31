@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label">التفاصيل</label>
-                                <input type="text" class="form-control" wire:model="value" placeholder="التفاصيل">
+                             
                                 @error('value') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                         </div>

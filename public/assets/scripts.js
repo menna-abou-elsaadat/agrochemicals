@@ -62,8 +62,16 @@ document.addEventListener('livewire:init', () => {
        Livewire.on('passPageTitleToLayout', (pageTitle) => {
           $('.'+pageTitle[0]).addClass('active');
        });
-      });
-
+       Livewire.on('clean_editor', () => {
+          $('.editor').each(function(){
+               $(this).find('.ql-editor').empty();
+         })
+       });
+   });
+     
+document.addEventListener('livewire:init', () => {
+        setUpQuillEditor()
+        });
 
 $(document).on('click','.delete_object',function(){
 	message = $(this).attr('data-message');
@@ -86,32 +94,23 @@ $(document).on('click','.delete_object',function(){
 $(document).ready(function() {
 
    $('.modal').modal({backdrop: 'static', keyboard: false})
-   const quill = new Quill('.editor', {
-    theme: 'snow'
-  });
-   //  $('.file_uploader').each(function(){
-   //  	model_name = $(this).attr('data-model-name');
-   //  	id = $(this).attr('data-id');
-   //  	model_column = $(this).attr('data-model-column');
-   //  	$(this).FancyFileUpload({
-	// 	url: "/upload_file",
-	// 	params : {
-	// 		_token : $('#token').val(),
-	// 		'model_name' : model_name,
-	// 		'model_column' : model_column,
-	// 		'id' : id
-	// 	},
-	// 	'maxfilesize' : -1,
-	// 	added: function(e,data)
-	// 	{
-	// 		console.log(e);
-	// 		console.log(data);
-	// 	}
-
-	// });
-   //  });
-	
+   // setUpQuillEditor();
+   
 });
+
+$(document).on('click','.add_editor_content_before_save',function(){
+  $('.editor').each(function(){
+      id  = $(this).attr('id');
+      function_name = $(this).attr('function-name');
+      const quill = $('#'+id);
+      content = quill.find('.ql-editor').html();
+      Livewire.dispatch(function_name,[content]);
+
+   })
+  $(this).parent().find('.submit_button').click();
+})
+	
+
 
 function show_message(message)
 {
@@ -122,4 +121,16 @@ function show_message(message)
 		  showConfirmButton :false,
 		  timer: 3000,
 		});
+}
+// $(document).on('click','.containing_editors',function(){
+//    setUpQuillEditor()
+// })
+function setUpQuillEditor()
+{
+   $('.editor').each(function(){
+      id  = $(this).attr('id');
+      const quill = new Quill('#'+id, {
+         theme: 'snow'
+      });
+   })
 }

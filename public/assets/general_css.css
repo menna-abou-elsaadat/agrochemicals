@@ -33,3 +33,11 @@
     cursor: pointer;
     outline: none;
     }
+
+    .modal-footer{
+        margin-top: 49px;
+         position: relative;
+    }
+    .ql-editor {
+        text-align: right !important;
+    }

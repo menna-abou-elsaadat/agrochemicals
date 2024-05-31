@@ -15,6 +15,7 @@ class Edit extends Component
     #[Validate('required')]
     public $value;
     public $company;
+    public $id;
 
     protected $messages = [
         'name.required' => 'يرجى ادخال المحافظة',
@@ -35,6 +36,16 @@ class Edit extends Component
         $this->render();
         
     }
+    #[On('updateValueContent')]
+    public function updateValueContent($content)
+    {
+        $this->value = $content;
+    }
+    #[On('initQuillEditor')]
+    public function initQuillEditor()
+    {
+        $this->dispatch('initQuillEditor');
+    }
 
     public function save()
     {
@@ -43,5 +54,6 @@ class Edit extends Component
         $this->reset();
         $this->dispatch('refreshComponent')->to('Company.Index');
         $this->dispatch('close_modal','تم تعديل معلمة عن الشركة بنجاح');
+        $this->dispatch('clean_editor');
     }
 }
