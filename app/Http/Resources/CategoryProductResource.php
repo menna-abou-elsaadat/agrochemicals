@@ -25,7 +25,6 @@ class CategoryProductResource extends JsonResource
             'discount'=>$this->discount,
             'stock'=>$this->stock,
             'category_id'=>$this->category->id,
-            'dieses' => DiesesResource::collection($this->dieses)
 
         ];
     }

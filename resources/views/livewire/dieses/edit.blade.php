@@ -25,7 +25,7 @@
                                 @error('hse_precuations') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                             <div class="col-12">
-                                <label class="form-label">فترة ما قبل الحصاد</label>
+                                <label class="form-label">فترة ما قبل الحصاد PHI</label>
                                 <input type="text" class="form-control" wire:model="phi" placeholder="فترة ما قبل الحصاد">
                                 @error('phi') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
