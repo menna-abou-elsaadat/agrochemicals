@@ -59,8 +59,8 @@
                                 </a>
                             </div>
                             <!-- Start:: orders link -->
-                            <div class="dropdown menu-apps">
-                                <a href="#" class="btn btn-link">
+                            <div class="dropdown menu-apps orders">
+                                <a href="{{route('order_index')}}" class="btn btn-link">
                                     <span>طلبات الشراء</span>
                                 </a>
                             </div>

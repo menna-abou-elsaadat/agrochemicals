@@ -53,9 +53,17 @@ document.addEventListener('livewire:init', () => {
           $('#edit_contact').modal('show')
        });
 
-       //////////////////////contact data///////////////////////
+       //////////////////////dieses data///////////////////////
        Livewire.on('openEditDiesesModal', (message) => {
           $('#edit_dieses').modal('show')
+       });
+
+       //////////////////////order data///////////////////////
+       Livewire.on('openEditOrderModal', (message) => {
+          $('#edit_order').modal('show')
+       });
+       Livewire.on('openViewOrderModal', (message) => {
+          $('#view_order').modal('show')
        });
 
        

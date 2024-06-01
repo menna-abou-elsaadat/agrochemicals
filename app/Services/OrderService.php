@@ -41,5 +41,36 @@ class OrderService
 		return $order_product;
 	}
 
+	public static function edit($payment_status,$order_status,$order_file,$order_id)
+	{
+		$order = Order::find($order_id);
+		if ($payment_status) {
+			$order->payment_status = $payment_status;
+		}
+		if ($order_status) {
+			$order->order_status = $order_status;
+		}
+		if ($order_file && $order->file) {
+			// delete prev image
+			FileService::delete($order->file_id);
+		}
+		if ($order_file) {
+
+			$file = FileService::store($order_file);
+			$order->file_id = $file->id;
+		}
+		$order->save();
+		return $order;
+	}
+
+	public static function remove($id)
+	{
+		$order = Order::find($id);
+		if ($order->file) {
+			FileService::delete($order->file_id);
+		}
+		$order->delete();
+	}
+
 }
 ?>
