@@ -4,8 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\DiesesResource;
 
-class CategoryProductResource extends JsonResource
+class SingleCategoryProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -24,7 +25,7 @@ class CategoryProductResource extends JsonResource
             'discount'=>$this->discount,
             'stock'=>$this->stock,
             'category_id'=>$this->category->id,
-
+            'dieses' => DiesesResource::collection($this->dieses)
         ];
     }
 }

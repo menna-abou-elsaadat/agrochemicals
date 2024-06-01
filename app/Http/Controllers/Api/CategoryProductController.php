@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Helpers\ApiResponse;
 use App\Http\Resources\CategoryProductResource;
+use App\Http\Resources\SingleCategoryProductResource;
 use App\Models\CategoryProduct;
 
 class CategoryProductController extends Controller
@@ -19,6 +20,21 @@ class CategoryProductController extends Controller
         $products = CategoryProduct::where('category_id',$input['category_id'])->get();
         $data = CategoryProductResource::collection($products);
         return ApiResponse::sendResponse(200,'products data',$data);
+    }
+
+    public function get_product(Request $request)
+    {
+        $input = $request->input();
+        if (!isset($input['product_id'])) {
+            return ApiResponse::sendResponse(401,'product_id is required',Null);
+        }
+        $product = CategoryProduct::find($input['product_id']);
+
+        if (!$product) {
+            return ApiResponse::sendResponse(401,'product_id is wrong',Null);
+        }
+        $data = new SingleCategoryProductResource($product);
+        return ApiResponse::sendResponse(200,'product data',$data);
     }
 
     public function special()

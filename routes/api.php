@@ -43,6 +43,7 @@ Route::controller(CategoryController::class)->prefix('category')->group(function
 //--------------------------------Category Product Module------------------------------
 Route::controller(CategoryProductController::class)->prefix('category-product')->group(function(){
     Route::post('/','index')->name('index');
+    Route::post('/get_product','get_product')->name('get_product');
     Route::get('/special','special')->name('special');
     Route::post('/search','search')->name('search');
 });
@@ -87,4 +88,5 @@ Route::controller(GeneralController::class)->group(function(){
 //--------------------------------order Module-------------------------
 Route::controller(OrderController::class)->middleware('auth:sanctum')->prefix('order')->group(function(){
     Route::post('/','make_order')->name('make_order'); 
+    Route::post('/get_orders','get_orders')->name('ge_orders'); 
 });
