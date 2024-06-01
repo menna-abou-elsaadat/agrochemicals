@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\DiscountCodesController;
 use App\Http\Controllers\Api\UserAddressController;
 use App\Http\Controllers\Api\GeneralController;
+use App\Http\Controllers\Api\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,4 +82,9 @@ Route::controller(GeneralController::class)->group(function(){
     Route::get('/adv','adv')->name('adv'); 
     Route::get('/company_data','company_data')->name('company_data');
     Route::get('/contact_us','contact_us')->name('contact_us');
+});
+
+//--------------------------------order Module-------------------------
+Route::controller(OrderController::class)->middleware('auth:sanctum')->prefix('order')->group(function(){
+    Route::post('/','make_order')->name('make_order'); 
 });

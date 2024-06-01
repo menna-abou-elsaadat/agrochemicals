@@ -16,16 +16,18 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->longText('shipping_address');
             $table->longText('shipping_governorate');
-            $table->unsignedBigInteger('payment_method_id');
+            $table->longText('payment_type');
+            $table->longText('phone');
             $table->unsignedBigInteger('file_id')->nullable();
-            $table->float('total_price');
-            $table->float('shipping_fees');
+            $table->double('total_price');
+            $table->double('shipping_fees');
+            $table->double('discount')->default(0);
+            $table->double('final_price')->default(0);
             $table->string('order_status')->default('معلق');
             $table->string('payment_status')->default('لم يتم الدفع');
             $table->date('purchase_date');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');
         });
     }
 
