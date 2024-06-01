@@ -15,8 +15,8 @@
                                 @error('crop') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                             <div class="col-12">
-                                <label class="form-label">المرض</label>
-                                <textarea class="form-control" placeholder="المرض" style="height: 100px" wire:model="dieses"></textarea>
+                                <label class="form-label">المرض او الغرض</label>
+                                <textarea class="form-control" placeholder="المرض او الغرض" style="height: 100px" wire:model="dieses"></textarea>
                                 @error('dieses') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                             <div class="col-12">
