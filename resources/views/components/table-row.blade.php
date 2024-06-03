@@ -9,7 +9,7 @@
         @elseif ($column['column'] === 'action')
         <div class="flex gap-1 items-center justify-center">
             @if($redirectToPage)
-            <a type="button" href="{{route($redirectToPageRoute,['id'=>$item->id])}}" class="btn btn-link btn-sm color-400" data-bs-placement="top" data-bs-original-title="معدلات الاستخدام" data-object-id = "{{$item->id}}">معدلات الاستخدام</a>
+            <a type="button" target="_blank" href="{{route($redirectToPageRoute,['id'=>$item->id])}}" class="btn btn-link btn-sm color-400" data-bs-placement="top" data-bs-original-title="معدلات الاستخدام" data-object-id = "{{$item->id}}">معدلات الاستخدام</a>
             @endif
             @if($isModalView)
             <!-- <button data-bs-toggle="modal" data-bs-target="#view_user" type="button" class="btn btn-link btn-sm color-400" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="عرض">عرض</button> -->
