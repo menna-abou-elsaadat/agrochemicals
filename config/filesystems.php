@@ -58,6 +58,16 @@ return [
         'my_files' => [
             'driver' => 'local',
             'root'   => public_path() . '/uploads',
+            'permissions' => [
+                'file' => [
+                    'public' => 0777,
+                    'private' => 0777,
+                ],
+                'dir' => [
+                    'public' => 0777,
+                    'private' => 0777,
+                ],
+            ],
         ],
 
     ],
