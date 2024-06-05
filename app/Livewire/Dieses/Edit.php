@@ -20,6 +20,7 @@ class Edit extends Component
     #[Validate('')]
     public $phi;
     public $dieses_record;
+    public $id;
 
     protected $messages = [
         'crop.required' => 'يرجى ادخال المحصول',
@@ -34,13 +35,21 @@ class Edit extends Component
     #[On('openEditModal')]
     public function openEditModal($id)
     {
+        $this->id = $id;
         $this->dieses_record = Dieses::find($id);
         $this->crop = $this->dieses_record->crop;
         $this->dieses = $this->dieses_record->dieses;
         $this->hse_precuations = $this->dieses_record->hse_precuations;
         $this->phi = $this->dieses_record->phi;
+        $this->dispatch('initQuillEditor','dieses'.$this->id);
+        $this->dispatch('initQuillEditor','hse_precuations'.$this->id);
         $this->render();
         
+    }
+    #[On('updateValueContent')]
+    public function updateValueContent($function_param,$content)
+    {
+        $this->{$function_param} = $content;
     }
 
     public function save()
@@ -50,5 +59,6 @@ class Edit extends Component
         $this->reset();
         $this->dispatch('refreshComponent')->to('Dieses.Index');
         $this->dispatch('close_modal','تم تعديل المرض بنجاح');
+        $this->dispatch('clean_editor');
     }
 }

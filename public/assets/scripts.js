@@ -77,13 +77,10 @@ document.addEventListener('livewire:init', () => {
        });
 
        Livewire.on('initQuillEditor', (id) => {
-         setTimeout( () =>
-         {
-          const quill = new Quill('#'+id[0], {
-            theme: 'snow'
-         });
-      
-         }, 100 ); 
+            setUpQuillEditor(id[0])
+          });
+       Livewire.on('initSecondQuillEditor', (id) => {
+            setUpSecondQuillEditor(id[0])
           });
        
    });
@@ -116,9 +113,10 @@ $(document).on('click','.add_editor_content_before_save',function(){
   $('.editor').each(function(){
       id  = $(this).attr('id');
       function_name = $(this).attr('function-name');
+      function_param = $(this).attr('function-param');
       const quill = $('#'+id);
       content = quill.find('.ql-editor').html();
-      Livewire.dispatch(function_name,[content]);
+      Livewire.dispatch(function_name,[function_param,content]);
 
    })
   $(this).parent().find('.submit_button').click();
@@ -139,13 +137,12 @@ function show_message(message)
 
 function setUpQuillEditor(id)
 {
-   
-   $('.editor').each(function(){
-      id = $(this).attr('id');
-      console.log(id);
-      const quill = new Quill('#value', {
-         theme: 'snow'
-      });
-   })
+   setTimeout( () =>
+         {
+          const quill = new Quill('#'+id, {
+            theme: 'snow'
+         });
+      
+         }, 100 ); 
       
 }

@@ -38,10 +38,10 @@ class Edit extends Component
         $this->render();
         
     }
-    #[On('updateEditValueContent')]
-    public function updateEditValueContent($value)
+   #[On('updateValueContent')]
+    public function updateValueContent($function_param,$content)
     {
-        $this->value = $value;
+        $this->{$function_param} = $content;
     }
 
     public function save()

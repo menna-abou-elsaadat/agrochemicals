@@ -11,7 +11,12 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <label class="form-label">النص</label>
-                                <textarea class="form-control" placeholder="النص" style="height: 100px" wire:model="text"></textarea>
+                                <div wire:init="initQuillEditor('text')" wire:ignore>
+                                    <div class="editor" id="text" function-name = "updateValueContent" function-param="text">
+                                        
+                                    </div>
+                                </div>
+                                 <input type="text" class="form-control hidden" wire:model="text">
                                 @error('text') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                             <div class="col-12">
@@ -42,7 +47,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">تسجيل الاعلان</button>
+                    <a  class="btn btn-primary add_editor_content_before_save">تسجيل الاعلان</a>
+                    <button type="submit" class="btn btn-primary hidden submit_button">تسجيل الاعلان</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
                 </div>
             </form>

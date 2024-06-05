@@ -40,12 +40,15 @@ class CategoryProduct extends Model
             }
 
             if ($column == 'disease') {
-                $query->where(function($q) use ($value){
-                    $q->where('properties','like','%'.$value.'%')
-                    ->orWhere('other_data','like','%'.$value.'%');
-                })
-                
-                ;
+                $query->whereHas('dieses',function($q) use($value){
+                    $q->where('dieses','like','%'.$value.'%');
+                });
+            }
+
+            if ($column == 'crop') {
+                $query->whereHas('dieses',function($q) use($value){
+                    $q->where('crop','like','%'.$value.'%');
+                });
             }
 
         }

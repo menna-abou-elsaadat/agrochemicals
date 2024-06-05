@@ -5,6 +5,7 @@ namespace App\Livewire\Dieses;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use App\Services\DiesesService;
+use Livewire\Attributes\On; 
 
 class Create extends Component
 {
@@ -27,6 +28,15 @@ class Create extends Component
     {
         $this->product_id = $id;
     }
+    public function initQuillEditor($name)
+    {
+        $this->dispatch('initQuillEditor',$name);
+    }
+    #[On('updateValueContent')]
+    public function updateValueContent($function_param,$content)
+    {
+        $this->{$function_param} = $content;
+    }
     public function render()
     {
         return view('livewire.dieses.create');
@@ -39,5 +49,6 @@ class Create extends Component
         $this->resetExcept('product_id');
         $this->dispatch('refreshComponent')->to('Dieses.Index');
         $this->dispatch('close_modal','تم انشاء المرض بنجاح');
+        $this->dispatch('clean_editor');
     }
 }

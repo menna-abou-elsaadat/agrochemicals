@@ -62,23 +62,47 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label">التعريف</label>
-                                <textarea class="form-control" placeholder="التعريف" style="height: 100px" wire:model="description"></textarea>
+                                <div wire:init="initQuillEditor('description')" wire:ignore>
+                                    <div class="editor" id="description" function-name = "updateValueContent" function-param="description">
+                                        
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control hidden" wire:model="description">
                             </div>
                             <div class="col-12">
                                 <label class="form-label">خصائص و مميزات</label>
-                                <textarea class="form-control" placeholder="خصائص و مميزات" style="height: 100px" wire:model="properties"></textarea>
+                                <div wire:init="initQuillEditor('properties')" wire:ignore>
+                                    <div class="editor" id="properties" function-name = "updateValueContent" function-param="properties">
+                                        
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control hidden" wire:model="properties">
                             </div>
                             <div class="col-12">
                                 <label class="form-label">توصيات و معدلات</label>
-                                <textarea class="form-control" placeholder="توصيات و معدلات" style="height: 100px" wire:model="recommended_doses"></textarea>
+                                <div wire:init="initQuillEditor('recommended_doses')" wire:ignore>
+                                    <div class="editor" id="recommended_doses" function-name = "updateValueContent" function-param="recommended_doses">
+                                        
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control hidden" wire:model="recommended_doses">
                             </div>
                             <div class="col-12">
                                 <label class="form-label">احتيطات الامان</label>
-                                <textarea class="form-control" placeholder="احتيطات الامان" style="height: 100px" wire:model="hse_precuations"></textarea>
+                                <div wire:init="initQuillEditor('hse_precuations')" wire:ignore>
+                                    <div class="editor" id="hse_precuations" function-name = "updateValueContent" function-param="hse_precuations">
+                                        
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control hidden" wire:model="hse_precuations">
                             </div>
                             <div class="col-12">
                                 <label class="form-label">معلومات اخري</label>
-                                <textarea class="form-control" placeholder="معلومات اخري" style="height: 100px" wire:model="other_data"></textarea>
+                                    <div wire:init="initQuillEditor('other_data')" wire:ignore>
+                                        <div class="editor" id="other_data" function-name = "updateValueContent" function-param="other_data">
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control hidden" wire:model="other_data">
                             </div>
                             <div class="col-12">
                                 <label class="form-label">صورة </label>
@@ -107,7 +131,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">تسجيل الصنف</button>
+                    <a  class="btn btn-primary add_editor_content_before_save">تسجيل الصنف</a>
+                    <button type="submit" class="btn btn-primary hidden submit_button">تسجيل الصنف</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
                 </div>
             </form>

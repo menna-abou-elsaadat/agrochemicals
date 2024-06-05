@@ -11,7 +11,12 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <label class="form-label">النص</label>
-                                <textarea class="form-control" placeholder="النص" style="height: 100px" wire:model="text"></textarea>
+                                <div>
+                                    <div class="editor" id="text{{$id}}" function-name = "updateValueContent" function-param="text">
+                                        <?php echo $text ?>
+                                    </div>
+                                </div>
+                                 <input type="text" class="form-control hidden" wire:model="text">
                                 @error('text') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                             <div class="col-12">
@@ -49,7 +54,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">تعديل الاعلان</button>
+                    <a  class="btn btn-primary add_editor_content_before_save">تعديل الاعلان</a>
+                    <button type="submit" class="btn btn-primary hidden submit_button">تعديل الاعلان</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
                 </div>
             </form>

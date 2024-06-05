@@ -16,8 +16,8 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label">التفاصيل</label>
-                                <div wire:init="initQuillEditor" wire:ignore>
-                                    <div class="editor" id="value" function-name = "updateValueContent">
+                                <div wire:init="initQuillEditor('value')" wire:ignore>
+                                    <div class="editor" id="value" function-name = "updateValueContent" function-param="value">
                                         
                                     </div>
                                 </div>

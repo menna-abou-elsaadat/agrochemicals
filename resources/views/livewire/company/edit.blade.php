@@ -17,7 +17,7 @@
                             <div class="col-12">
                                 <label class="form-label">التفاصيل</label>
                                 <div>
-                                    <div class="editor" id="value{{$id}}" function-name = "updateEditValueContent"><?php echo $value ?></div>
+                                    <div class="editor" id="value{{$id}}" function-name = "updateValueContent" function-param="value"><?php echo $value ?></div>
                                 </div>
                                 <input type="text" class="form-control hidden" wire:model="value">
                                 @error('value') <span class="text-danger float_right">{{ $message }} </span> @enderror

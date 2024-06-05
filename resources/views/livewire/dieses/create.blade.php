@@ -16,12 +16,21 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label">المرض او الغرض</label>
-                                <textarea class="form-control" placeholder="المرض او الغرض" style="height: 100px" wire:model="dieses"></textarea>
+                                <div wire:init="initQuillEditor('dieses')" wire:ignore>
+                                    <div class="editor" id="dieses" function-name = "updateValueContent" function-param="dieses">   
+                                    </div>
+                                </div>
+                            <input type="text" class="form-control hidden" wire:model="dieses">
                                 @error('dieses') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                             <div class="col-12">
                                 <label class="form-label">معدل الاستخدام</label>
-                                <textarea class="form-control" placeholder="معدل الاستخدام" style="height: 100px" wire:model="hse_precuations"></textarea>
+                                <div wire:init="initQuillEditor('hse_precuations')" wire:ignore>
+                                    <div class="editor" id="hse_precuations" function-name = "updateValueContent" function-param="hse_precuations">
+                                        
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control hidden" wire:model="hse_precuations">
                                 @error('hse_precuations') <span class="text-danger float_right">{{ $message }} </span> @enderror
                             </div>
                             <div class="col-12">
@@ -32,7 +41,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">تسجيل</button>
+                        <a  class="btn btn-primary add_editor_content_before_save">تسجيل</a>
+                        <button type="submit" class="btn btn-primary hidden submit_button">تسجيل</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
                     </div>
                 </form>

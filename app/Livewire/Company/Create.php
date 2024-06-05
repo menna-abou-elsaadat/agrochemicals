@@ -20,14 +20,14 @@ class Create extends Component
         'value.required' => 'يرجى ادخال التفاصيل',
     ];
     #[On('updateValueContent')]
-    public function updateValueContent($content)
+    public function updateValueContent($function_param,$content)
     {
-        $this->value = $content;
+        $this->{$function_param} = $content;
     }
     
-    public function initQuillEditor()
+    public function initQuillEditor($name)
     {
-        $this->dispatch('initQuillEditor','value');
+        $this->dispatch('initQuillEditor',$name);
     }
     public function render()
     {

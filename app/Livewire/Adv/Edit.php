@@ -18,6 +18,7 @@ class Edit extends Component
     #[Validate('')]
     public $adv_file;
     public $uploaded_file;
+    public $id;
 
     public Advertisment $adv;
 
@@ -49,8 +50,17 @@ class Edit extends Component
     {
         $this->adv = Advertisment::find($id);
         $this->text = $this->adv->text;
+        $this->id = $id;
+
+        $this->dispatch('initQuillEditor','text'.$this->id);
         $this->render();
         
+    }
+
+    #[On('updateValueContent')]
+    public function updateValueContent($function_param,$content)
+    {
+        $this->{$function_param} = $content;
     }
 
     public function save()
@@ -60,5 +70,6 @@ class Edit extends Component
         $this->reset();
         $this->dispatch('refreshComponent')->to('Adv.Index');
         $this->dispatch('close_modal','تم تعديل الاعلان بنجاح');
+        $this->dispatch('clean_editor');
     }
 }

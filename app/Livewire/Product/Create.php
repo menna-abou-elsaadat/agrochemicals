@@ -58,7 +58,15 @@ class Create extends Component
         $categories = Category::get();
         return view('livewire.product.create',compact('categories'));
     }
-
+    #[On('updateValueContent')]
+    public function updateValueContent($function_param,$content)
+    {
+        $this->{$function_param} = $content;
+    }
+    public function initQuillEditor($name)
+    {
+        $this->dispatch('initQuillEditor',$name);
+    }
     #[On('upload:finished')] 
     public function uploadFinished()
     {   
@@ -78,5 +86,6 @@ class Create extends Component
         $this->reset();
         $this->dispatch('refreshComponent')->to('Product.Index');
         $this->dispatch('close_modal','تم انشاء الصنف بنجاح');
+        $this->dispatch('clean_editor');
     }
 }

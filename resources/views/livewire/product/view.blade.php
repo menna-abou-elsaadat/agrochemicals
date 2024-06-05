@@ -52,23 +52,23 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label">التعريف: </label>
-                                {{$product->description}}
+                                <?php echo $product->description ?>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">خصائص و مميزات: </label>
-                                {{$product->properties}}
+                                <?php echo $product->properties ?>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">توصيات و معدلات: </label>
-                                {{$product->recommended_doses}}
+                                <?php echo $product->recommended_doses ?>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">احتيطات الامان: </label>
-                                {{$product->hse_precuations}}
+                                <?php echo $product->hse_precuations ?>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">معلومات اخري: </label>
-                                {{$product->other_data}}
+                                <?php echo $product->other_data ?>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">صورة : </label>

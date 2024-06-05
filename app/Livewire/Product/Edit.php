@@ -48,6 +48,7 @@ class Edit extends Component
     public $product_file;
     public $uploaded_file;
     public CategoryProduct $product;
+    public $id;
 
     protected $messages = [
         'name.required' => 'يرجى ادخال الاسم',
@@ -92,9 +93,22 @@ class Edit extends Component
         $this->other_data = $this->product->other_data;
         $this->category_id = $this->product->category_id;
         $this->description = $this->product->description;
+        $this->id = $category_product_id;
+
+        $this->dispatch('initQuillEditor','description'.$this->id);
+        $this->dispatch('initQuillEditor','other_data'.$this->id);
+        $this->dispatch('initQuillEditor','hse_precuations'.$this->id);
+        $this->dispatch('initQuillEditor','recommended_doses'.$this->id);
+        $this->dispatch('initQuillEditor','properties'.$this->id);
 
         $this->render();
         
+    }
+
+    #[On('updateValueContent')]
+    public function updateValueContent($function_param,$content)
+    {
+        $this->{$function_param} = $content;
     }
 
     public function save()
@@ -103,5 +117,6 @@ class Edit extends Component
         $category_product = CategoryProductService::store($data,$this->product->id);
         $this->dispatch('refreshComponent')->to('Product.Index');
         $this->dispatch('close_modal','تم تعديل الصنف بنجاح');
+        $this->dispatch('clean_editor');
     }
 }

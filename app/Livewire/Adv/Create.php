@@ -28,6 +28,16 @@ class Create extends Component
     {
         return view('livewire.adv.create');
     }
+    #[On('updateValueContent')]
+    public function updateValueContent($function_param,$content)
+    {
+        $this->{$function_param} = $content;
+    }
+    
+    public function initQuillEditor($name)
+    {
+        $this->dispatch('initQuillEditor',$name);
+    }
 
     #[On('upload:finished')] 
     public function uploadFinished()
@@ -48,5 +58,6 @@ class Create extends Component
         $this->reset();
         $this->dispatch('refreshComponent')->to('Adv.Index');
         $this->dispatch('close_modal','تم انشاء الاعلان بنجاح');
+        $this->dispatch('clean_editor');
     }
 }
