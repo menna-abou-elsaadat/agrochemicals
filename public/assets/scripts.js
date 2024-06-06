@@ -139,9 +139,33 @@ function setUpQuillEditor(id)
 {
    setTimeout( () =>
          {
-          const quill = new Quill('#'+id, {
-            theme: 'snow'
-         });
+           const toolbarOptions = [
+              ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+
+              ['link', 'image', 'video'],
+              // custom button values
+              [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],    // superscript/subscript         // outdent/indent
+              [{ 'direction': 'rtl' }],                         // text direction
+
+
+              [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+
+
+              [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+              [{ 'font': [] }],
+              [{ 'align': [] }],
+
+
+              ['clean']                                         // remove formatting button
+            ];
+
+
+            const quill = new Quill('#'+id, {
+              modules: {
+                toolbar: toolbarOptions
+              },
+              theme: 'snow'
+            });
       
          }, 100 ); 
       
