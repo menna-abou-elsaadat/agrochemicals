@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\UserAddressResource;
 
 class UserResource extends JsonResource
 {
@@ -20,7 +21,8 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone_number,
-            'region' => $this->region
+            'region' => $this->region,
+            'addresses' => UserAddressResource::collection($this->addresses)
         ];
     }
 }

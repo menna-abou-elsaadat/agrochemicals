@@ -34,7 +34,7 @@ class AuthController extends Controller
         if (Auth::attempt(['phone_number'=>$inputs['phone'],'password'=>$inputs['password']])) {
             $user = Auth::user();
             $data['token'] = $user->createToken($user->phone_number)->plainTextToken;
-            // $data['user'] = new UserResource($user);
+            $data['user'] = new UserResource($user);
             $data['user_id'] = $user->id;
 
             return ApiResponse::sendResponse(200,'User Account logged in Successfully',$data);
