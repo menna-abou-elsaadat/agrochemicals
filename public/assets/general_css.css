@@ -41,3 +41,7 @@
     .ql-editor {
         text-align: right !important;
     }
+    label{
+        text-decoration: underline;
+        font-size: large;
+    }
