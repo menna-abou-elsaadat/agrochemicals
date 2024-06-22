@@ -11,6 +11,9 @@ use App\Models\CategoryProduct;
 use App\Models\User;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use App\Models\File as FileModel;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
@@ -84,6 +87,35 @@ class OrderController extends Controller
         }
 
         $order->order_status = $inputs['order_status'];
+        $order->save();
+        return ApiResponse::sendResponse(200,'order payment status was updated', Null);
+    }
+
+    public function proof_payment(Request $request)
+    {
+        $inputs = $request->input();
+        if (!isset($inputs['order_id'])) {
+            return ApiResponse::sendResponse(401,'order_id is required',Null);
+        }
+        $order = Order::find($inputs['order_id']);
+        if(!$order)
+        {
+            return ApiResponse::sendResponse(401,'order_id is wrong',Null);
+        }
+        if (!isset($inputs['image'])) {
+            return ApiResponse::sendResponse(401,'image is required',Null);
+        }
+
+        $uuid = md5(rand());
+        $file_path = $inputs['image']->storeAs($uuid,$inputs['image']->getCLientOriginalName(),['disk' => 'my_files']);
+
+        $file = new FileModel();
+        $file->uuid = $uuid;
+        $file->name = $inputs['image']->getCLientOriginalName();
+        $file->type = 'image';
+        $file->save();
+
+        $order->file_id = $file->id;
         $order->save();
         return ApiResponse::sendResponse(200,'order payment status was updated', Null);
     }
