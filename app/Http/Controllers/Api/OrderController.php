@@ -10,6 +10,7 @@ use App\Services\OrderService;
 use App\Models\CategoryProduct;
 use App\Models\User;
 use App\Http\Resources\OrderResource;
+use App\Models\Order;
 
 class OrderController extends Controller
 {
@@ -45,5 +46,45 @@ class OrderController extends Controller
         }
         $data = OrderResource::collection($user->orders);
         return ApiResponse::sendResponse(200,'user orders', $data);
+    }
+
+    public function payment_status(Request $request)
+    {
+        $inputs = $request->input();
+        if (!isset($inputs['order_id'])) {
+            return ApiResponse::sendResponse(401,'order_id is required',Null);
+        }
+        $order = Order::find($inputs['order_id']);
+        if(!$order)
+        {
+            return ApiResponse::sendResponse(401,'order_id is wrong',Null);
+        }
+        if (!isset($inputs['payment_status'])) {
+            return ApiResponse::sendResponse(401,'payment_status is required',Null);
+        }
+
+        $order->payment_status = $inputs['payment_status'];
+        $order->save();
+        return ApiResponse::sendResponse(200,'order payment status was updated', Null);
+    }
+
+    public function order_status(Request $request)
+    {
+        $inputs = $request->input();
+        if (!isset($inputs['order_id'])) {
+            return ApiResponse::sendResponse(401,'order_id is required',Null);
+        }
+        $order = Order::find($inputs['order_id']);
+        if(!$order)
+        {
+            return ApiResponse::sendResponse(401,'order_id is wrong',Null);
+        }
+        if (!isset($inputs['order_status'])) {
+            return ApiResponse::sendResponse(401,'order_status is required',Null);
+        }
+
+        $order->order_status = $inputs['order_status'];
+        $order->save();
+        return ApiResponse::sendResponse(200,'order payment status was updated', Null);
     }
 }

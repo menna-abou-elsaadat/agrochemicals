@@ -89,4 +89,8 @@ Route::controller(GeneralController::class)->group(function(){
 Route::controller(OrderController::class)->middleware('auth:sanctum')->prefix('order')->group(function(){
     Route::post('/','make_order')->name('make_order'); 
     Route::get('/get_orders/{user_id}','get_orders')->name('ge_orders'); 
+    ////update order
+    Route::post('/proof_payment','proof_payment')->name('proof_payment');
+    Route::post('/payment_status','payment_status')->name('payment_status');
+    Route::post('/order_status','order_status')->name('order_status');
 });
