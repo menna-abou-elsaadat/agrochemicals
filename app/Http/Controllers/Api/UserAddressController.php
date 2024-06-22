@@ -13,14 +13,13 @@ use App\Models\User;
 class UserAddressController extends Controller
 {
     //
-    public function index(Request $request)
+    public function index($user_id)
     {
-        $inputs = $request->input();
-        if(!isset($inputs['user_id']))
+        if(!isset($user_id))
         {
             return ApiResponse::sendResponse(401,'user_id is required',Null);
         }
-        $user = User::find($inputs['user_id']);
+        $user = User::find($user_id);
         if(!$user)
         {
             return ApiResponse::sendResponse(401,'user_id not found',Null);

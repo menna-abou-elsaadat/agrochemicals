@@ -33,13 +33,12 @@ class OrderController extends Controller
 
     }
 
-    public function get_orders(Request $request)
+    public function get_orders($user_id)
     {
-        $input = $request->input();
-        if (!isset($input['user_id'])) {
+        if (!isset($user_id)) {
             return ApiResponse::sendResponse(401,'user_id is required',Null);
         }
-        $user = User::find($input['user_id']);
+        $user = User::find($user_id);
 
         if (!$user) {
             return ApiResponse::sendResponse(401,'user_id is wrong',Null);

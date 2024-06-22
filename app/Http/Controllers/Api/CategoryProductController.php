@@ -11,24 +11,22 @@ use App\Models\CategoryProduct;
 
 class CategoryProductController extends Controller
 {
-    public function index(Request $request)
+    public function index($category_id)
     {
-        $input = $request->input();
-        if (!isset($input['category_id'])) {
+        if (!isset($category_id)) {
             return ApiResponse::sendResponse(401,'category id is required',Null);
         }
-        $products = CategoryProduct::where('category_id',$input['category_id'])->get();
+        $products = CategoryProduct::where('category_id',$category_id)->get();
         $data = CategoryProductResource::collection($products);
         return ApiResponse::sendResponse(200,'products data',$data);
     }
 
-    public function get_product(Request $request)
+    public function get_product($product_id)
     {
-        $input = $request->input();
-        if (!isset($input['product_id'])) {
+        if (!isset($product_id)) {
             return ApiResponse::sendResponse(401,'product_id is required',Null);
         }
-        $product = CategoryProduct::find($input['product_id']);
+        $product = CategoryProduct::find($product_id);
 
         if (!$product) {
             return ApiResponse::sendResponse(401,'product_id is wrong',Null);

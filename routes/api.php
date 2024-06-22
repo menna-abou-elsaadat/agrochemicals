@@ -42,8 +42,8 @@ Route::controller(CategoryController::class)->prefix('category')->group(function
 
 //--------------------------------Category Product Module------------------------------
 Route::controller(CategoryProductController::class)->prefix('category-product')->group(function(){
-    Route::post('/','index')->name('index');
-    Route::post('/get_product','get_product')->name('get_product');
+    Route::get('/{category_id}','index')->name('index');
+    Route::get('/get_product/{product_id}','get_product')->name('get_product');
     Route::get('/special','special')->name('special');
     Route::post('/search','search')->name('search');
 });
@@ -75,7 +75,7 @@ Route::controller(DiscountCodesController::class)->prefix('discount_code')->grou
 //--------------------------------user address Module-------------------------
 Route::controller(UserAddressController::class)->middleware('auth:sanctum')->prefix('user_address')->group(function(){
     Route::post('/create','create')->name('create'); 
-    Route::post('/','index')->name('index'); 
+    Route::get('/{user_id}','index')->name('index'); 
 });
 
 //--------------------------------general Module-------------------------
@@ -88,5 +88,5 @@ Route::controller(GeneralController::class)->group(function(){
 //--------------------------------order Module-------------------------
 Route::controller(OrderController::class)->middleware('auth:sanctum')->prefix('order')->group(function(){
     Route::post('/','make_order')->name('make_order'); 
-    Route::post('/get_orders','get_orders')->name('ge_orders'); 
+    Route::get('/get_orders/{user_id}','get_orders')->name('ge_orders'); 
 });
