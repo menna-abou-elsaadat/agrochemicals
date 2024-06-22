@@ -102,16 +102,16 @@ class OrderController extends Controller
         {
             return ApiResponse::sendResponse(401,'order_id is wrong',Null);
         }
-        if (!isset($inputs['image'])) {
+        if (!$request->hasFile('image')) {
             return ApiResponse::sendResponse(401,'image is required',Null);
         }
 
         $uuid = md5(rand());
-        $file_path = $inputs['image']->storeAs($uuid,$inputs['image']->getCLientOriginalName(),['disk' => 'my_files']);
+        $file_path = $request->file('image')->storeAs($uuid,$request->file('image')->getCLientOriginalName(),['disk' => 'my_files']);
 
         $file = new FileModel();
         $file->uuid = $uuid;
-        $file->name = $inputs['image']->getCLientOriginalName();
+        $file->name = $request->file('image')->getCLientOriginalName();
         $file->type = 'image';
         $file->save();
 
