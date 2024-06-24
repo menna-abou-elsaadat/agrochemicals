@@ -42,7 +42,7 @@ Route::controller(CategoryController::class)->prefix('category')->group(function
 
 //--------------------------------Category Product Module------------------------------
 Route::controller(CategoryProductController::class)->prefix('category-product')->group(function(){
-    Route::get('/{category_id}','index')->name('index');
+    Route::get('/products/{category_id}','index')->name('index');
     Route::get('/get_product/{product_id}','get_product')->name('get_product');
     Route::get('/special','special')->name('special');
     Route::post('/search','search')->name('search');
