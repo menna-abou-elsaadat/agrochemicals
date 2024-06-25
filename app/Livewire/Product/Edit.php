@@ -99,6 +99,8 @@ class Edit extends Component
         $this->category_id = $this->product->category_id;
         $this->description = $this->product->description;
         $this->id = $category_product_id;
+        $this->product_file = null;
+        $this->uploaded_file = null;
 
         $this->dispatch('initQuillEditor','description'.$this->id);
         $this->dispatch('initQuillEditor','other_data'.$this->id);

@@ -43,6 +43,7 @@ class Edit extends Component
         $file_content['file'] = $file; 
         $file_content['type'] = $type; 
         $this->adv_file = $file_content;
+        $this->dispatch('initQuillEditor','text'.$this->id);
     }
 
     #[On('openEditModal')]

@@ -34,6 +34,8 @@ class Edit extends Component
     {
         $this->category = Category::find($category_id);
         $this->name = $this->category->name;
+        $this->category_file = null;
+        $this->uploaded_file = null;
         $this->render();
         
     }
