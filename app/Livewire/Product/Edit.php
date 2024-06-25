@@ -72,6 +72,11 @@ class Edit extends Component
         $file_content['file'] = $file; 
         $file_content['type'] = $type; 
         $this->product_file = $file_content;
+        $this->dispatch('initQuillEditor','description'.$this->id);
+        $this->dispatch('initQuillEditor','other_data'.$this->id);
+        $this->dispatch('initQuillEditor','hse_precuations'.$this->id);
+        $this->dispatch('initQuillEditor','recommended_doses'.$this->id);
+        $this->dispatch('initQuillEditor','properties'.$this->id);
     }
 
     #[On('openEditModal')]
