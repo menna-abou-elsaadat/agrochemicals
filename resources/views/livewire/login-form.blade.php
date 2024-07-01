@@ -15,7 +15,7 @@
                 <div class="col-12">
                     <div class="mb-2">
                         <div class="form-label">
-                            <span class="d-flex justify-content-between align-items-center"> كلمة تامرور
+                            <span class="d-flex justify-content-between align-items-center"> كلمة المرور
                             </span>
                         </div>
                         <input type="password" class="form-control form-control-lg" wire:model="password" placeholder="***************">
